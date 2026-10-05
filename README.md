@@ -1,6 +1,6 @@
 # Layout study 03 — Netflix, bands and the dial
 
-**Live:** not published. Pass one is local only.
+**Live:** https://gregoryedgerton.github.io/golden-grids-study-03-netflix/
 
 An unaffiliated layout study. It rebuilds the structure of two named pages
 using stacked golden grids, then opens one title into its own frames on the
@@ -13,12 +13,12 @@ Built with [Golden Grids](https://github.com/gregoryedgerton/golden-grids)
 [generator](https://gregoryedgerton.github.io/golden-grids/)), from the
 [study template](https://github.com/gregoryedgerton/golden-grids-study-template).
 
-> **Status: built, unpublished.** Structure measured at three widths, visual
+> **Status: built and live.** Structure measured at three widths, visual
 > register matched to tokens measured from the reference, and every image a
 > still from its film: Nosferatu and ten more of Weimar-era German cinema,
 > all public domain in the United States. [`ASSETS.md`](ASSETS.md) is the
 > provenance and the rights table. The standfirst and synopsis are drafts.
-> What remains is publishing and the written post.
+> What remains is the written post.
 
 ---
 

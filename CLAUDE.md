@@ -14,7 +14,8 @@ login) and nothing may be asserted about it. Read `docs/program/PROGRAM.md`
 first, then `docs/program/STUDY-BRIEF.md`, then `README.md` here, which holds
 the inventory, the measured band table, and the asset spec.
 
-Pass one is local only. No remote, no deploy, until Greg says.
+Live at https://gregoryedgerton.github.io/golden-grids-study-03-netflix/;
+pushing to `main` deploys.
 
 ## Rules that are not negotiable
 
