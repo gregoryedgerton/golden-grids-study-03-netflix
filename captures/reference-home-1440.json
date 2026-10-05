@@ -1,0 +1,274 @@
+{
+ "tiles": [
+  {
+   "text": "Doing Life 1 1",
+   "x": 148,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "A Different World 2 2",
+   "x": 372,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "Why Did I Get Married Again? 3 3",
+   "x": 596,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "Beauty in Black 4 4",
+   "x": 820,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "Monster: The Lizzie Borden Story 5 5",
+   "x": 1044,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "Percy Jackson and the Olympians 6 6",
+   "x": 1268,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "Death of the Pastor's Wife 7 7",
+   "x": 1492,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "Mayor of Kingstown 8 8",
+   "x": 1716,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "UNABOMBER 9 9",
+   "x": 1940,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "East of Eden 10 10",
+   "x": 2164,
+   "y": 1043,
+   "w": 224,
+   "h": 268
+  },
+  {
+   "text": "What is Netflix?",
+   "x": 148,
+   "y": 1839,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "text": "How much does Netflix cost?",
+   "x": 148,
+   "y": 1931,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "text": "Where can I watch?",
+   "x": 148,
+   "y": 2023,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "text": "How do I cancel?",
+   "x": 148,
+   "y": 2115,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "text": "What can I watch on Netflix?",
+   "x": 148,
+   "y": 2207,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "text": "Is Netflix good for kids?",
+   "x": 148,
+   "y": 2299,
+   "w": 1144,
+   "h": 84
+  }
+ ],
+ "url": "https://www.netflix.com/",
+ "title": "Netflix - Watch TV Shows Online, Watch Movies Online",
+ "width": 1440,
+ "height": 3152,
+ "headings": [
+  {
+   "tag": "H1",
+   "text": "Unlimited movies, TV shows, and more",
+   "x": 426,
+   "y": 258,
+   "w": 588,
+   "h": 140
+  },
+  {
+   "tag": "H3",
+   "text": "Ready to watch? Enter your email to create or restart your membership.",
+   "x": 426,
+   "y": 471,
+   "w": 588,
+   "h": 24
+  },
+  {
+   "tag": "H3",
+   "text": "The Netflix you love for just $8.99.",
+   "x": 280,
+   "y": 872,
+   "w": 322,
+   "h": 25
+  },
+  {
+   "tag": "H2",
+   "text": "Trending Now",
+   "x": 148,
+   "y": 997,
+   "w": 1144,
+   "h": 30
+  },
+  {
+   "tag": "H2",
+   "text": "More Reasons to Join",
+   "x": 148,
+   "y": 1375,
+   "w": 241,
+   "h": 30
+  },
+  {
+   "tag": "H3",
+   "text": "Enjoy on your TV",
+   "x": 164,
+   "y": 1445,
+   "w": 191,
+   "h": 30
+  },
+  {
+   "tag": "H3",
+   "text": "Download your shows to watch offline",
+   "x": 454,
+   "y": 1445,
+   "w": 242,
+   "h": 90
+  },
+  {
+   "tag": "H3",
+   "text": "Watch everywhere",
+   "x": 744,
+   "y": 1445,
+   "w": 209,
+   "h": 30
+  },
+  {
+   "tag": "H3",
+   "text": "Create profiles for kids",
+   "x": 1034,
+   "y": 1445,
+   "w": 242,
+   "h": 60
+  },
+  {
+   "tag": "H2",
+   "text": "Frequently Asked Questions",
+   "x": 148,
+   "y": 1793,
+   "w": 316,
+   "h": 30
+  },
+  {
+   "tag": "H3",
+   "text": "What is Netflix?",
+   "x": 148,
+   "y": 1839,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "tag": "H3",
+   "text": "How much does Netflix cost?",
+   "x": 148,
+   "y": 1931,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "tag": "H3",
+   "text": "Where can I watch?",
+   "x": 148,
+   "y": 2023,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "tag": "H3",
+   "text": "How do I cancel?",
+   "x": 148,
+   "y": 2115,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "tag": "H3",
+   "text": "What can I watch on Netflix?",
+   "x": 148,
+   "y": 2207,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "tag": "H3",
+   "text": "Is Netflix good for kids?",
+   "x": 148,
+   "y": 2299,
+   "w": 1144,
+   "h": 84
+  },
+  {
+   "tag": "H3",
+   "text": "Ready to watch? Enter your email to create or restart your membership.",
+   "x": 329,
+   "y": 2455,
+   "w": 783,
+   "h": 24
+  }
+ ],
+ "images": [
+  {
+   "alt": "",
+   "x": 148,
+   "y": 24,
+   "w": 148,
+   "h": 40
+  },
+  {
+   "alt": "",
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 888
+  }
+ ]
+}
