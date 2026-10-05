@@ -34,8 +34,9 @@ export function App() {
       <footer className="colophon">
         {/* Required on every study. Keep this line. */}
         <p>
-          An unaffiliated layout study of <a href="https://www.netflix.com/">netflix.com</a>. All imagery and
-          copy are original; nothing from the reference site is reproduced. Built with{" "}
+          An unaffiliated layout study of <a href="https://www.netflix.com/">netflix.com</a>. The imagery
+          is stills from films in the public domain in the United States and the copy is original;
+          nothing from the reference site is reproduced. Built with{" "}
           <a href="https://github.com/gregoryedgerton/golden-grids">Golden Grids</a> ·{" "}
           <a href="https://www.npmjs.com/package/@gifcommit/golden-grids">npm</a> ·{" "}
           <a href="https://gregoryedgerton.github.io/golden-grids/">generator</a>.

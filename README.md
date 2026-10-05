@@ -4,7 +4,8 @@
 
 An unaffiliated layout study. It rebuilds the structure of two named pages
 using stacked golden grids, then opens one title into its own frames on the
-spiral dial. All imagery and copy here are original. Nothing from the
+spiral dial. The imagery is stills from films in the public domain in the
+United States; the copy is original. Nothing from the
 reference site — photography, wordmarks, marketing copy — is reproduced.
 
 Built with [Golden Grids](https://github.com/gregoryedgerton/golden-grids)
