@@ -16,10 +16,8 @@ Built with [Golden Grids](https://github.com/gregoryedgerton/golden-grids)
 > register matched to tokens measured from the reference, and every image a
 > still from its film: Nosferatu and ten more of Weimar-era German cinema,
 > all public domain in the United States. [`ASSETS.md`](ASSETS.md) is the
-> provenance and the rights table, and it lists what is not yet settled: the
-> German rights of six films. The
-> standfirst and synopsis are drafts. What remains is those checks and the
-> written post.
+> provenance and the rights table. The standfirst and synopsis are drafts.
+> What remains is publishing and the written post.
 
 ---
 
@@ -254,10 +252,13 @@ because the print is 640×480. The frames are not a strict even sample: see
    is not matched: Netflix Sans is the reference's own, so the page uses the
    rest of its declared stack.
 
-**One thing to check before publishing.** All eleven films are public domain
-in the United States. Six of them — everything by Lang, plus Pabst, Reiniger
-and The Golem — appear to be still protected in Germany. The table and the
-reasoning are in [`ASSETS.md`](ASSETS.md), written from memory and unverified.
+**Rights, as decided.** All eleven films are public domain in the United
+States, where the study is hosted, and that is the basis. Six of them —
+everything by Lang, plus Pabst, Reiniger and The Golem — appear to be still
+protected in Germany; all ten stay regardless. Seven ranked stills come from
+prints of unknown or restored origin, accepted for single stills. The table
+and the reasoning are in [`ASSETS.md`](ASSETS.md); the death years in it are
+from memory and no further checking is planned.
 
 ## What worked
 

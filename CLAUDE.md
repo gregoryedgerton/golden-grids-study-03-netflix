@@ -69,8 +69,10 @@ Pass one is local only. No remote, no deploy, until Greg says.
 - The catalogue is real: Nosferatu (featured, the one title, the dial) and
   ten Weimar-era German films in the ranked row. Every image is to be a STILL
   from its film, never a poster. `ASSETS.md` is the provenance and the
-  rights table; keep it accurate. Its German-rights column is unverified and
-  seven ranked stills come from prints of unknown or restored origin.
+  rights table; keep it accurate. Greg decided 2026-10-05 that all ten
+  ranked films stay on a US-public-domain basis, that stills from prints of
+  unknown or restored origin are accepted, and that no further rights
+  checking is wanted. Do not reopen it; do keep the German status stated.
 - `captures/stills.sh` cuts all 33 images and is the record of every source
   URL and timecode. Its frame list and `FRAME_SECONDS` in `src/content.ts`
   must agree. Never upscale a still; `TEXTURE_PX` is 480 because the

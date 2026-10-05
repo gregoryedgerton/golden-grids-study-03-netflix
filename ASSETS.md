@@ -17,8 +17,12 @@ the **United States**, which is where the study is hosted.
 **Germany is a different answer.** There a film is protected for seventy
 years after the death of the last of its director, screenwriter and
 composer. By that rule six of these are still protected. The table is
-written from memory and **must be checked against a reliable source before
-anything is published** — the death years decide it.
+written from memory and has not been checked against a source.
+
+**Decision, Greg, 2026-10-05:** all ten stay. United States public domain is
+the basis, the study is hosted in the United States, and no further rights
+checking is planned. This file keeps stating the German status so nobody
+has to rediscover it.
 
 | Film | Year | Director | Other credited authors | Public domain in Germany? |
 | --- | --- | --- | --- | --- |
