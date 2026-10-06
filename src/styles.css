@@ -39,12 +39,11 @@ a { color: inherit; text-decoration-color: var(--accent); }
    that adds motion inherits the rule. A dial study must swap in a static
    layout here, not a slower dial. */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  /* `none`, not the 0.01ms trick: a transition of any length on a property
+     that script writes and then measures synchronously makes the
+     measurement read the old value. Study 04 found this under iOS Reduce
+     Motion with type fitted to its box. */
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
 .skip {
