@@ -15,6 +15,7 @@
   --card: rgba(255, 255, 255, 0.1);    /* details card fill */
   --accent: rgb(229, 9, 20);           /* call to action */
   --on-accent: #fff;
+  --label: #ff5c5c;                    /* red as small text: lifted on the dark ground, deepened on the light */
   --radius-tile: 8px;
   --radius-card: 16px;
   --btn: rgb(35, 35, 35);              /* tile button fill */
@@ -42,6 +43,7 @@
     --line-light: #f0f0f0;
     --tag-bg: rgba(20, 20, 20, 0.85);
     --tag-fg: #fff;
+    --label: #a8060d;
   }
 }
 
@@ -220,7 +222,7 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
   container-type: size;
   background: var(--card); border: 2px solid var(--line); border-radius: var(--radius-card);
 }
-.box__label { margin: 0 0 0.4em; font: 500 clamp(0.6rem, 3.4cqmin, 0.8rem)/1.3 var(--font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); overflow-wrap: anywhere; }
+.box__label { margin: 0 0 0.4em; font: 500 clamp(0.6rem, 3.4cqmin, 0.8rem)/1.3 var(--font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--label); overflow-wrap: anywhere; }
 .box__label::after { content: ""; display: block; width: 2em; border-top: 2px solid currentColor; margin-top: 0.35em; }
 /* The fitted line's room is whatever the label, body and foot leave: a flex
    basis of 0 that grows to fill, never sized by its own content, so the fit
@@ -236,7 +238,7 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
 .box__body p { margin: 0 0 0.5em; }
 .box__body p:last-child { margin-bottom: 0; }
 .box__foot { margin-top: auto; padding-top: 0.5em; display: flex; justify-content: space-between; gap: 1em; align-items: baseline; font-size: clamp(0.6rem, 3.4cqmin, 0.8rem); }
-.box__source { color: var(--muted); }
+.box__source { color: var(--muted); overflow-wrap: anywhere; min-width: 0; }
 .more { min-height: 24px; font: 700 1em/1 var(--font); letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg); background: transparent; border: 0; padding: 0.3em 0; cursor: pointer; border-bottom: 2px solid var(--accent); }
 .more--link { text-decoration: none; }
 .box__foot .more + .more { margin-left: 1em; }
