@@ -57,7 +57,7 @@ export function FilmDialBand() {
     <Band
       id="film"
       title={`${FILM.title}, frame by frame`}
-      lesson="One title is not a row. Scroll to move through the film: the frame in focus, and the frames around it at every scale at once."
+      lesson="Twenty-one frames from the 1947 American print, which carries Stoker's names, Harker and Nina, in its English intertitles. Scroll to move through the film from the rooftops of Wisborg to the cock crow, with the frame in focus named below and the scenes to come and gone around it."
       note={reduced
         ? `reduced motion: the strip — ${FRAME_COUNT} equal frames in order`
         : `${FRAME_COUNT} squares · ${STEP} viewport per frame · frames level, centre-cropped to ${TEXTURE_PX}px`}
@@ -73,8 +73,8 @@ function Strip() {
       {FRAMES.map((f) => (
         <li key={f.index}>
           <figure className="media">
-            <img src={f.src} alt={`${FILM.title} at ${f.timecode}`} />
-            <figcaption className="media__tag">{f.timecode}</figcaption>
+            <img src={f.src} alt={`${FILM.title} at ${f.timecode}: ${f.note}`} />
+            <figcaption className="media__tag">{f.timecode} · {f.note}</figcaption>
           </figure>
         </li>
       ))}
@@ -132,7 +132,7 @@ function Dial() {
       if (readoutRef.current) {
         const focus = clamp(Math.round(focusIndexAt(depth, FRAME_COUNT)), 0, FRAME_COUNT - 1);
         const f = frameOf(focus);
-        readoutRef.current.textContent = `${f.timecode} · frame ${f.index + 1} of ${FRAME_COUNT}`;
+        readoutRef.current.textContent = `${f.timecode} · frame ${f.index + 1} of ${FRAME_COUNT} · ${f.note}`;
       }
     };
     const schedule = () => {
@@ -162,12 +162,12 @@ function Dial() {
             ref={(el) => { tilesRef.current[k] = el; }}
             style={{ width: TEXTURE_PX, height: TEXTURE_PX, visibility: "hidden" }}
           >
-            <img className="dial__art" src={frameOf(k).src} alt="" draggable={false} />
+            <img className="dial__art" src={frameOf(k).src} alt={`${frameOf(k).timecode}: ${frameOf(k).note}`} draggable={false} />
           </div>
         ))}
         {/* Bottom LEFT: the study tools own the top-right corner. */}
         <p className="dial__readout" aria-live="off">
-          <span ref={readoutRef}>{FRAMES[0].timecode} · frame 1 of {FRAME_COUNT}</span>
+          <span ref={readoutRef}>{FRAMES[0].timecode} · frame 1 of {FRAME_COUNT} · {FRAMES[0].note}</span>
           <span className="dial__hint"> · scroll to scrub</span>
         </p>
       </div>

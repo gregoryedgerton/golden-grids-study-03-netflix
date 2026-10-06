@@ -27,6 +27,8 @@ export interface RankedTitle {
   cast: string;
   /** Two or three sentences, the study's own words. A draft. */
   synopsis: string;
+  /** The public-domain print the still was cut from. */
+  source: { label: string; href: string };
 }
 
 /**
@@ -65,6 +67,18 @@ const STILLS: readonly Still[] = [
   still("s03-rank-09-waxworks", 480, "60% 30%"),
   still("s03-rank-10-destiny", 576, "45% 40%"),
 ];
+const SOURCES: readonly [string, string][] = [
+  ["Internet Archive · Metropolis1927EnglishVersion", "https://archive.org/details/Metropolis1927EnglishVersion"],
+  ["Internet Archive · DasKabinettdesDoktorCaligari…", "https://archive.org/details/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari"],
+  ["Internet Archive · TheGolem_893", "https://archive.org/details/TheGolem_893"],
+  ["Internet Archive · FaustF.W.MurnauSilentFilm", "https://archive.org/details/FaustF.W.MurnauSilentFilm"],
+  ["Internet Archive · Der_letzte_Mann", "https://archive.org/details/Der_letzte_Mann"],
+  ["Internet Archive · Dr. Mabuse, Part 1", "https://archive.org/details/Dr.MabuseTheGamblerdr.MabuseDerSpieler1922Part1"],
+  ["Internet Archive · pandoras.-box-1929", "https://archive.org/details/pandoras.-box-1929"],
+  ["Internet Archive · die-abenteuer-des-prinzen-achmed", "https://archive.org/details/die-abenteuer-des-prinzen-achmed"],
+  ["Internet Archive · WaxWorks", "https://archive.org/details/WaxWorks"],
+  ["Internet Archive · ZmeczonaSmiercr19212", "https://archive.org/details/ZmeczonaSmiercr19212"],
+];
 export const RANKED: RankedTitle[] = TITLES.map(([title, original, year, director, cast, synopsis], i) => ({
   rank: i + 1,
   title,
@@ -75,6 +89,7 @@ export const RANKED: RankedTitle[] = TITLES.map(([title, original, year, directo
   art: STILLS[i],
   cast,
   synopsis,
+  source: { label: SOURCES[i][0], href: SOURCES[i][1] },
 }));
 
 /** Promoted, and not in the ranked ten: the billboard leads to the one
@@ -132,11 +147,35 @@ const FRAME_SECONDS = [
   140, 392, 616, 868, 1148, 1344, 1596, 1848, 2156, 2352, 2576,
   2828, 3052, 3360, 3444, 3780, 4032, 4256, 4536, 4704, 4956,
 ];
+/** What is on screen at each frame, in the study's words, from the print. */
+const FRAME_NOTES = [
+  "Wisborg: roofs and a church tower at dawn",
+  "Knock, the estate agent, over the letter from the count",
+  "The Carpathian passes on the road to the castle",
+  "Hutter at the inn, where the villagers warn him not to go on",
+  "The count's coach, no driver, at the bridge",
+  "A clock strikes midnight; the figure on it is a skeleton",
+  "Hutter at the window with the book of vampires",
+  "Orlok in the hall, at the far door",
+  "Orlok asleep in the coffin, seen through its boards",
+  "Hutter escapes downriver on a raft",
+  "Knock in his cell, reaching towards the window",
+  "The Empusa under sail",
+  "The crew on deck: the first sailor has fallen ill",
+  "Orlok comes up through the hatch, a coffin under his arm",
+  "Orlok rises out of the hold among the rats",
+  "The ship arrives in harbour with no one left alive",
+  "Orlok carries his coffin through the town's arches",
+  "Hutter home again, in the room across the square",
+  "Ellen in her chair, reading what only a woman can do",
+  "Orlok at his window, looking across at hers",
+  "The cock crows; Orlok at the window as the sun comes up",
+];
 export const FRAME_COUNT = FRAME_SECONDS.length;
 export const FRAMES = FRAME_SECONDS.map((seconds, i) => {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const sec = seconds % 60;
   const timecode = `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
-  return { index: i, timecode, src: `${import.meta.env.BASE_URL}assets/s03-film-frame-${String(i + 1).padStart(2, "0")}.jpg` };
+  return { index: i, timecode, note: FRAME_NOTES[i], src: `${import.meta.env.BASE_URL}assets/s03-film-frame-${String(i + 1).padStart(2, "0")}.jpg` };
 });

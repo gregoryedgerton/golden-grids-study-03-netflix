@@ -32,8 +32,8 @@ export function FeaturedBand() {
   return (
     <Band
       id="featured"
-      title="Featured"
-      lesson="The promoted title, dominant. The reference lays its copy over the frame; here the copy has its own box until the band collapses to one."
+      title="Featured: Nosferatu, 1922"
+      lesson="F. W. Murnau's unauthorised adaptation of Bram Stoker's Dracula, made for the short-lived Prana Film with sets and costumes by the occultist Albin Grau. The names were changed and the story moved to a German port town; Stoker's widow sued, and in 1925 a court ordered every copy destroyed. Prints had already left the country, and from them the film survives."
       note={`from=1 to=${to} · placement="${placement}" · clockwise=true · hero left · ${single ? "single: copy overlaid on the art" : to === 3 ? "3:2" : "5:3"}`}
     >
       <GoldenGrid from={1} to={to} placement={placement}>

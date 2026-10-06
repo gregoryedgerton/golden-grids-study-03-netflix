@@ -308,10 +308,22 @@ from memory and no further checking is planned.
 - **A sticky ten-viewport section inside a page** is a long way to scroll
   for a reader who wanted the footer. There is no way past it but through.
 
-## Type that fits, cards that expand, two schemes
+## Type, cards, schemes and the film card
 
-Brought over from Study 04 on 2026-10-06, so the two studies share one
-standard.
+Brought to Study 04's standard on 2026-10-06, then taken further.
+
+**The type is German.** Jost, a revival of Paul Renner's Futura (Frankfurt,
+1927), the geometric grotesk of the New Typography that these films' posters
+were set in: a lowercase masthead at the full width, heavy tight headlines,
+small labels spaced and capitalised in red, a red rule under the kicker and
+beside each band title, red and black and little else. Display type is
+hidden until Jost has loaded so it never flashes from the fallback face.
+This replaces the reference's declared stack; the reference's own face,
+Netflix Sans, was never used.
+
+**The copy is about the films.** Band titles and lessons describe Weimar
+cinema and the ten films, not the layout; grid geometry is kept to the
+hidden band notes and this README.
 
 **Type fits its card.** Every copy card ([`src/lib/boxes.tsx`](src/lib/boxes.tsx))
 is a label, a line of type fitted to the room the card leaves it
@@ -319,23 +331,35 @@ is a label, a line of type fitted to the room the card leaves it
 re-run on resize and when the font arrives), optional body copy, and a foot.
 The fitted line's container is a definite flex box, `flex: 1 1 0`, which is
 what lets the fit measure correctly in WebKit as well as Chrome. Cards pad
-at 8% of their own side, 6px to 36px. Nothing is clipped: labels wrap, body
-copy is removed whole below 240px, and in a card under 64px the label goes
-and the line stays. Scanned in Chrome and WebKit at 390, 820 and 1440, in
-both schemes: no element overflows its card.
+at 8% of their own side. Nothing is clipped: labels wrap, body copy is
+removed whole below 240px, and in a card under 64px the label goes and the
+line stays. Scanned in Chrome and WebKit at 390, 820 and 1440, in both
+schemes, with every film card open: no element overflows its card.
 
 **Light by device preference.** The reference has no light scheme. Under
 `prefers-color-scheme: light` the dark tokens are turned over, white ground
 and near-black type, with the red unchanged; the values are the study's,
-not measured. The dark scheme remains the default and the reference's.
+not measured. Dark remains the default and the reference's.
 
-**Every card opens.** The featured title, the synopsis, the details and the
-cast expand to a fuller passage; every ranked poster expands to its film's
-credits, a short synopsis and the still. The synopses and the fuller
-account of *Nosferatu* are the study's own words and are drafts.
+**Every card opens, and every poster opens a band.** The featured title,
+the synopsis, the details and the cast expand to fuller passages. Choosing
+a ranked poster opens that film's own band directly beneath the rows
+([`src/bands/FilmCardBand.tsx`](src/bands/FilmCardBand.tsx)): the still as
+hero, a synopsis, year and director, cast, and the public-domain print the
+still was cut from, with a link to it. Each rank takes a different
+orientation, so the ten cards between them use all eight placement ×
+direction pairs; top and bottom placements take five squares (8:5), right
+and left take four (5:3), and at 390 every card has four, portrait where
+the placement is top or bottom. Focus moves to the card's Close control and
+returns to the poster on close. The synopses and the fuller account of
+*Nosferatu* are the study's own words and are drafts.
+
+**The dial names its scenes.** Each of the 21 frames carries a one-line
+note of what is on screen, in the readout as you scroll, as the strip's
+caption under reduced motion, and as the frame's alt text.
 
 **Accessibility.** axe-core (WCAG 2.0/2.1/2.2 A and AA plus best practice)
-reports no violations in either scheme with a card open. Every More control
+reports no violations in either scheme with a card open. Every control
 names what it opens; controls are at least 24px tall; the reduced-motion
 rule is `transition: none`, which matters because the fit measures
 synchronously after each write.

@@ -87,8 +87,8 @@ export function TitleBand() {
   return (
     <Band
       id="title"
-      title="One title"
-      lesson="Art, synopsis, metadata, cast: a descent, so a grid. The reference's three detail cards are flat facts, so a list, one click behind the metadata box."
+      title="Nosferatu, eine Symphonie des Grauens"
+      lesson="Shot in 1921 in Wismar, Lübeck and Rostock, and at Orava Castle in what is now Slovakia, with Max Schreck as Count Orlok. Murnau filmed much of it on location rather than on painted sets, which set it apart from Caligari, and used the camera's own tricks, negative film for the forest and stop motion for the coach, where the story left the ordinary world."
       note={`from=1 to=4 · placement="left" · clockwise=false · hero right · children [${boxes.map((b) => b.key).join(", ")}]`}
       cap="60rem"
     >

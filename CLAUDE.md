@@ -88,6 +88,14 @@ pushing to `main` deploys.
   the fit has a definite box to measure against in WebKit. Light scheme by
   device preference; dark stays the default. Formula-like lines use
   `fit--num` and break only at their own newlines.
+- Page copy is about the FILMS, never about the grid: band titles and
+  lessons describe Weimar cinema; grid geometry goes in `note` and README.
+- The type is Jost (Futura revival), German New Typography register: red
+  rules, red capital labels, lowercase masthead. Display type is gated on
+  the font (`html[data-fonts]`), set in App.tsx.
+- Choosing a ranked poster opens `FilmCardBand` beneath the rows, a NEW band
+  (never a grid in a grid), one orientation per rank; at 390 four squares.
+  Selection state lives in App.tsx.
 - The register is Netflix's dark from measured tokens, declared once in
   `:root` in `src/styles.css`. Dark only. Rounded cards with 4px gutters,
   never grid lines. Do not add Netflix Sans or the wordmark.
