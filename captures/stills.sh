@@ -19,8 +19,8 @@ cut() { # name source seconds [extra-filter]
     -vf "${4:+$4,}crop='min(iw,ih)':'min(iw,ih)'" -q:v 3 "$OUT/$1.jpg" </dev/null
 }
 
-# Band 1 and band 4: two different stills of the one film.
-cut s03-featured-art-shadow        "$NOS" 1988
+# Band 1: the featured film, Berlin: Symphony of a Great City. Band 4: Nosferatu.
+cut s03-featured-art-berlin        "$IA/BerlinSymphonyofaGreatCity/BERLIN.AVI" 1800
 cut s03-title-art-archway          "$NOS" 1232
 
 # Bands 2 and 3: one still per ranked film.

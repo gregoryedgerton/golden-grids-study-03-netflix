@@ -4,10 +4,11 @@ Guidance for agents working in a Golden Grids layout study.
 
 ## What this repo is
 
-Study 03, the hybrid: bands for browse, the dial for one title, on one page.
+Study 03: Netflix's ranked rows as stacked golden grids, broken up by a fictional service's own modules, with one film opened in three act bands. The dial was REMOVED on 2026-10-06 at Greg's direction; this is a band-only study now.
 Five bands in `src/bands/`, stacked by `src/App.tsx`: `FeaturedBand`,
 `TierOneBand` and `TierTwoBand` (both from `RankedBand.tsx`), `TitleBand`,
-`FilmDialBand`. All content and the frame sequence live in `src/content.ts`.
+`ScenesBand` (three acts), and the service's marketing bands. All content
+lives in `src/content.ts`.
 The reference is the SIGNED-OUT netflix.com home page and a signed-out title
 page; the signed-in browse page was never captured (`/browse` redirects to
 login) and nothing may be asserted about it. Read `docs/program/PROGRAM.md`
@@ -59,14 +60,8 @@ pushing to `main` deploys.
 - Flat content stays flat: the details are a `<dl>`, the reduced-motion
   frames are a plain CSS grid strip, and You Might Also Like, the plans and
   the FAQ are not rebuilt.
-- The dial: frames stay level (`toCssContentTransform`), are centre-cropped,
-  and the film opens on the largest square (square k carries frame
-  COUNT - 1 - k). `STEP` in `FilmDialBand.tsx` and in `captures/study.cjs`
-  must agree. `TEXTURE_PX` in `src/content.ts` is the single source for tile
-  size and frame dimension. The readout sits bottom LEFT.
-- The Browser pane on Greg's machine reports `prefers-reduced-motion`, so it
-  shows the strip. Verify the dial with `captures/study.cjs`, which forces
-  motion on.
+- The 21 Nosferatu frames are three act bands (`ScenesBand.tsx`), ordered
+  by weight within an act, five of seven at 390. There is NO dial.
 - The catalogue is real: Nosferatu (featured, the one title, the dial) and
   ten Weimar-era German films in the ranked row. Every image is to be a STILL
   from its film, never a poster. `ASSETS.md` is the provenance and the
@@ -88,6 +83,10 @@ pushing to `main` deploys.
   the fit has a definite box to measure against in WebKit. Light scheme by
   device preference; dark stays the default. Formula-like lines use
   `fit--num` and break only at their own newlines.
+- Marketing copy (banner, reasons, plans, FAQ, CTA) is for the fictional
+  service Kinothek, plain and straight, never cheeky; the form sends nothing.
+- The featured film is Berlin: Symphony of a Great City; Nosferatu is the
+  opened title and appears once before its acts.
 - Page copy is about the FILMS, never about the grid: band titles and
   lessons describe Weimar cinema; grid geometry goes in `note` and README.
 - The type is Jost (Futura revival), German New Typography register: red

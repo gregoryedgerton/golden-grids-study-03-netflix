@@ -1,4 +1,4 @@
-# Layout study 03 — Netflix, bands and the dial
+# Layout study 03 — Netflix
 
 **Live:** https://gregoryedgerton.github.io/golden-grids-study-03-netflix/
 
@@ -13,7 +13,7 @@ Built with [Golden Grids](https://github.com/gregoryedgerton/golden-grids)
 [generator](https://gregoryedgerton.github.io/golden-grids/)), from the
 [study template](https://github.com/gregoryedgerton/golden-grids-study-template).
 
-> **Status: built and live; typography, expansion and schemes brought to Study 04's standard 2026-10-06.** Structure measured at three widths, visual
+> **Status: built and live. Reworked 2026-10-06:** the dial is gone, the frames are three act bands, the ranked rows are broken up by the service's own modules, and a different film is featured. Details under *The rework*. Structure measured at three widths, visual
 > register matched to tokens measured from the reference, and every image a
 > still from its film: Nosferatu and ten more of Weimar-era German cinema,
 > all public domain in the United States. [`ASSETS.md`](ASSETS.md) is the
@@ -308,6 +308,42 @@ from memory and no further checking is planned.
 - **A sticky ten-viewport section inside a page** is a long way to scroll
   for a reader who wanted the footer. There is no way past it but through.
 
+## The rework, 2026-10-06
+
+**The dial is removed.** It was the study's spectacle half and the program's
+hybrid argument, and Greg took it out: this is now a band-only study, and
+the reconciling claim the brief asked of Study 03 is no longer made here.
+The 21 Nosferatu frames stay, as **three act bands** of seven
+([`src/bands/ScenesBand.tsx`](src/bands/ScenesBand.tsx)): within an act the
+frames are ordered by weight, the scene that carries the act in the largest
+square, with the timecode on each keeping the order of events; every frame
+opens to the still with its note. At 390 each act shows its five weightiest.
+
+**The rows are broken up as the reference breaks its own.** The capture
+shows Netflix interleaving its rows with a plan banner, four reasons to
+join, a price table, a FAQ and an email call to action. The study does the
+same with a fictional service, Kinothek
+([`src/bands/MarketingBands.tsx`](src/bands/MarketingBands.tsx)): the plan
+banner between ranks 1–5 and 6–10; the reasons before the opened title; the
+plans between the first and second acts; the FAQ and the call to action
+last. All the copy is the study's and plain; the form sends nothing and
+says so; the FAQ is a list of `details`, because five questions of equal
+standing are not a hierarchy.
+
+**A different film is featured.** Nosferatu was the featured title and the
+opened title, twice on one page. The billboard is now *Berlin: Symphony of a
+Great City* (Ruttmann, 1927), with its own still from the Internet Archive
+print, account and details; Nosferatu appears once, as the opened title, and
+then in its three acts.
+
+**The page's copy is about the films**, in a plain register: band titles and
+lessons describe Weimar cinema and its makers; grid geometry is in the
+hidden band notes and this README.
+
+**Orientations.** The film card bands cover all eight placement × direction
+pairs between them; the fixed bands add 1–2, 1–3, 1–4, 1–5 and 1–7 ranges,
+a `single`, and a FAQ that is deliberately not a grid.
+
 ## Type, cards, schemes and the film card
 
 Brought to Study 04's standard on 2026-10-06, then taken further.
@@ -354,9 +390,8 @@ the placement is top or bottom. Focus moves to the card's Close control and
 returns to the poster on close. The synopses and the fuller account of
 *Nosferatu* are the study's own words and are drafts.
 
-**The dial names its scenes.** Each of the 21 frames carries a one-line
-note of what is on screen, in the readout as you scroll, as the strip's
-caption under reduced motion, and as the frame's alt text.
+**The frames name their scenes.** Each of the 21 frames carries a one-line
+note of what is on screen, as its caption when opened and as its alt text.
 
 **Accessibility.** axe-core (WCAG 2.0/2.1/2.2 A and AA plus best practice)
 reports no violations in either scheme with a card open. Every control

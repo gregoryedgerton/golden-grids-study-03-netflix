@@ -3,7 +3,6 @@ import type { PlacementValue } from "@gifcommit/golden-grids";
 import { useViewport, pick } from "../lib/viewport";
 import { useExpandGroup, ExpandedCell, ExpandableMedia, PhotoView } from "../lib/expand";
 import { Fact } from "../lib/boxes";
-import { FILM } from "../content";
 import { FEATURED } from "../content";
 import { Band } from "./Band";
 
@@ -32,8 +31,8 @@ export function FeaturedBand() {
   return (
     <Band
       id="featured"
-      title="Featured: Nosferatu, 1922"
-      lesson="F. W. Murnau's unauthorised adaptation of Bram Stoker's Dracula, made for the short-lived Prana Film with sets and costumes by the occultist Albin Grau. The names were changed and the story moved to a German port town; Stoker's widow sued, and in 1925 a court ordered every copy destroyed. Prints had already left the country, and from them the film survives."
+      title="Featured: Berlin, 1927"
+      lesson="Walter Ruttmann's portrait of a single day in the capital, from a train running in at dawn to the lights of the night, cut to rhythm with no actors and no story but the city's. Carl Mayer, who wrote Caligari, supplied the idea; Karl Freund, who shot Metropolis, led the camera, often from hiding. The best known of the city symphonies."
       note={`from=1 to=${to} · placement="${placement}" · clockwise=true · hero left · ${single ? "single: copy overlaid on the art" : to === 3 ? "3:2" : "5:3"}`}
     >
       <GoldenGrid from={1} to={to} placement={placement}>
@@ -43,7 +42,7 @@ export function FeaturedBand() {
             slotKey="art"
             className="media"
             src={FEATURED.art.src}
-            alt={`Still from ${FEATURED.title}: the shadow of a clawed figure on a door`}
+            alt={`Still from ${FEATURED.title}: motor cars on a Berlin street`}
             objectPosition={FEATURED.art.subject}
           >
             {single && (
@@ -64,10 +63,9 @@ export function FeaturedBand() {
             label="Featured"
             body={<p>{FEATURED.standfirst}</p>}
             source={FEATURED.meta}
-            link={{ href: "#title", label: "Open", aria: `Open ${FEATURED.title}` }}
             expand={{
               group: x, slotKey: "about", title: FEATURED.title,
-              full: <div className="cell__synopsis">{FILM.longer.map((p, i) => <p key={i}>{p}</p>)}</div>,
+              full: <div className="cell__synopsis">{FEATURED.longer.map((p, i) => <p key={i}>{p}</p>)}</div>,
               source: "The study's own account; a draft.",
             }}
           >
@@ -75,7 +73,7 @@ export function FeaturedBand() {
           </Fact>
         </GoldenBox>
         <GoldenBox>
-          <Fact label="Year · director" fitClass="fit--light">{"1922\nF. W. Murnau"}</Fact>
+          <Fact label="Year · director" fitClass="fit--light">{"1927\nWalter\nRuttmann"}</Fact>
         </GoldenBox>
         <GoldenBox>
           <Fact label="Genre" fitClass="fit--light">{FEATURED.badge.replace(" · ", "\n")}</Fact>

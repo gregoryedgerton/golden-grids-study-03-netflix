@@ -11,7 +11,7 @@ own height. Nothing is upscaled.
 
 ## The catalogue and its rights
 
-All eleven films were published before 1931 and are in the public domain in
+All twelve films were published before 1931 and are in the public domain in
 the **United States**, which is where the study is hosted.
 
 **Germany is a different answer.** There a film is protected for seventy
@@ -27,6 +27,7 @@ has to rediscover it.
 | Film | Year | Director | Other credited authors | Public domain in Germany? |
 | --- | --- | --- | --- | --- |
 | Nosferatu, eine Symphonie des Grauens | 1922 | F. W. Murnau (d. 1931) | Henrik Galeen (d. 1949) | Yes |
+| Berlin: Die Sinfonie der Großstadt | 1927 | Walter Ruttmann (d. 1941) | Carl Mayer (d. 1944), Karl Freund (cinematographer, d. 1969, not counted) | Yes |
 | Metropolis | 1927 | Fritz Lang (d. 1976) | Thea von Harbou (d. 1954) | **No — through 2046** |
 | Das Cabinet des Dr. Caligari | 1920 | Robert Wiene (d. 1938) | Carl Mayer (d. 1944), Hans Janowitz (d. 1954) | Yes, since 2025 |
 | Der Golem, wie er in die Welt kam | 1920 | Paul Wegener (d. 1948), Carl Boese (d. 1958) | Henrik Galeen (d. 1949) | **No — through 2028** |
@@ -55,7 +56,7 @@ the named file.
 
 | Slot | Film | File side | Source | Timecode | Print |
 | --- | --- | --- | --- | --- | --- |
-| featured | Nosferatu | 480 | Wikimedia Commons, `Nosferatu (1922, English titles 1947).webm` | 1988 | **Unrestored.** The 1947 American version, 640×480 |
+| featured | Berlin: Symphony of a Great City | 384 | IA `BerlinSymphonyofaGreatCity` | 1800 | Probably unrestored: a 2006 upload at 512×384 |
 | film | Nosferatu | 480 | same | 1232 | same |
 | frame-01 … 21 | Nosferatu | 480 | same | list in `stills.sh` | same |
 | rank-1 | Metropolis | 480 | IA `Metropolis1927EnglishVersion` | 2404.8 | Unknown. A 2014 upload at 640×480 with English titles |

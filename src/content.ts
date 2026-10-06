@@ -92,17 +92,32 @@ export const RANKED: RankedTitle[] = TITLES.map(([title, original, year, directo
   source: { label: SOURCES[i][0], href: SOURCES[i][1] },
 }));
 
-/** Promoted, and not in the ranked ten: the billboard leads to the one
- *  title the page opens, and to its frames. A different still from FILM.art. */
+/** Promoted, and not in the ranked ten nor the opened title: the billboard
+ *  is a film of its own. */
 export const FEATURED = {
-  title: "Nosferatu",
-  standfirst: "A shadow at the bedroom door. The first vampire film is still the strangest.",
-  meta: "1922 · F. W. Murnau",
-  badge: "Silent · Horror",
-  art: still("s03-featured-art-shadow", 480, "50% 40%"),
+  title: "Berlin: Symphony of a Great City",
+  original: "Berlin: Die Sinfonie der Großstadt",
+  standfirst: "One day in the capital, from the first train before dawn to the lights going out, with no actors and no story but the city's.",
+  meta: "1927 · Walter Ruttmann",
+  badge: "Silent · Documentary",
+  art: still("s03-featured-art-berlin", 384, "50% 55%"),
+  // DRAFT: the fuller account behind the More control. The study's words.
+  longer: [
+    "Walter Ruttmann's film follows a single day in Berlin in five acts, from a train running into the city at dawn, through the morning rush, the working day, the lunch hour and the afternoon, to the theatres, cafés and dance halls of the night. Nothing is staged for a story; the film is cut to rhythm, and the camera takes the city as it finds it.",
+    "The idea came from the screenwriter Carl Mayer, who had written The Cabinet of Dr. Caligari and The Last Laugh, and who left the project before it was finished, objecting to the direction it took. The photography was led by Karl Freund, who had shot Metropolis and The Last Laugh, often with hidden cameras. Edmund Meisel composed a score for the premiere in September 1927.",
+    "It is the best known of the city symphonies, a form taken up in the same years in Paris, Moscow and New York, and the most purely cinematic film of the Weimar decade: its subject is movement, and its argument is made by the cut.",
+  ],
+  details: [
+    ["Original title", "Berlin: Die Sinfonie der Großstadt"],
+    ["Directed by", "Walter Ruttmann"],
+    ["From an idea by", "Carl Mayer"],
+    ["Cinematography", "Karl Freund"],
+    ["Score for the premiere", "Edmund Meisel"],
+    ["Form", "Documentary, in five acts, without intertitles for most of its length"],
+  ] as const,
 };
 
-/** The single title the dial belongs to. */
+/** The one title the page opens. */
 export const FILM = {
   title: "Nosferatu",
   meta: "1922 · 84 min · Silent",
@@ -137,12 +152,9 @@ export const FILM = {
  * Nominal sampling is every 244 seconds from 0:02:20, the first picture
  * after the credits; each frame is then moved to the nearest strong picture
  * and never sits on an intertitle. FRAME_SECONDS is where each one actually
- * is, and must stay in step with the list in captures/stills.sh.
- *
- * TEXTURE_PX is the single source for the tile's render size AND the frame's
- * dimension. It is 480 because the print is 640×480 and nothing is upscaled.
+ * is, and must stay in step with the list in captures/stills.sh. Each is a
+ * 480-pixel square because the print is 640×480 and nothing is upscaled.
  */
-export const TEXTURE_PX = 480;
 const FRAME_SECONDS = [
   140, 392, 616, 868, 1148, 1344, 1596, 1848, 2156, 2352, 2576,
   2828, 3052, 3360, 3444, 3780, 4032, 4256, 4536, 4704, 4956,
@@ -179,3 +191,37 @@ export const FRAMES = FRAME_SECONDS.map((seconds, i) => {
   const timecode = `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
   return { index: i, timecode, note: FRAME_NOTES[i], src: `${import.meta.env.BASE_URL}assets/s03-film-frame-${String(i + 1).padStart(2, "0")}.jpg` };
 });
+
+/**
+ * The service. The reference breaks its rows with a plan banner, four
+ * "reasons to join", a price table, a FAQ and an email call to action. This
+ * study's service is fictional and so is every word here; nothing is
+ * submitted by the form.
+ */
+export const SERVICE = {
+  name: "Kinothek",
+  banner: {
+    headline: "Kinothek for $5.99 a month",
+    body: "The plan with ads: the whole library in HD, on one screen, with a short account of every film and the print it comes from.",
+    cta: "See the plans",
+  },
+  reasons: [
+    { title: "Watch on any screen", body: "Phone, tablet, laptop and television, and the same place in the film on each." },
+    { title: "Download the films", body: "Save any film to watch where there is no connection." },
+    { title: "Notes with every film", body: "Who made it, when, and from which print; the scenes named as you go." },
+    { title: "Cancel at any time", body: "No contract. Change or end the plan whenever you choose." },
+  ],
+  plans: [
+    { name: "Standard", quality: "1080p", price: "$11.99", per: "a month", points: ["Two screens at once", "Downloads on two devices", "No ads"], note: "Most chosen" },
+    { name: "Basic with ads", quality: "1080p", price: "$5.99", per: "a month", points: ["One screen", "A few ads an hour"] },
+    { name: "Premium", quality: "4K + HDR", price: "$17.99", per: "a month", points: ["Four screens at once", "Spatial audio", "Downloads on six devices"] },
+  ],
+  faq: [
+    ["What is Kinothek?", "A streaming library of German films of the 1920s, each with a short account of the film, its makers, and the print it is shown from."],
+    ["Where do the films come from?", "From prints in the public domain in the United States, held by the Internet Archive and Wikimedia Commons. Each film's page names its print. Where a print is a modern restoration, the page says so."],
+    ["How much does it cost?", "From $5.99 a month with ads, to $17.99 a month for 4K on four screens. The plans are listed below."],
+    ["Can I cancel?", "At any time, from the account page. There is no contract and no fee for leaving."],
+    ["Are the films suitable for children?", "Most carry no rating, having been made before ratings existed. Each film's notes say whether it contains frightening scenes; Nosferatu, Caligari and Waxworks do."],
+  ],
+  cta: { headline: "Start watching tonight", body: "Enter your email to begin a membership or restart one.", button: "Get started", disclaimer: "A demonstration. Nothing is sent." },
+};

@@ -59,8 +59,7 @@ a { color: inherit; text-decoration-color: var(--accent); }
 :focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
 
 /* Quality floor: reduced motion. This scaffold animates nothing, but a study
-   that adds motion inherits the rule. A dial study must swap in a static
-   layout here, not a slower dial. */
+   that adds motion inherits the rule. */
 @media (prefers-reduced-motion: reduce) {
   /* `none`, not the 0.01ms trick: a transition of any length on a property
      that script writes and then measures synchronously makes the
@@ -186,7 +185,6 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
 .band .golden-grid__box > .copy, .band .golden-grid__box > .surface-inner { position: absolute; inset: 4px; width: auto; height: auto; }
 .surface > .copy { background: var(--card); border: 2px solid var(--line); border-radius: var(--radius-card); }
 .cell--expanded > .cell { background: var(--card); border-radius: var(--radius-card); }
-.strip .media { border-radius: var(--radius-tile); }
 /* The rank numeral. The reference prints it at a fixed 100px, dark with a
    light outline, beside a tile of fixed size; here it scales with the box,
    so the numeral and the size say one thing. */
@@ -255,3 +253,18 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
 .film-card__bar { display: flex; align-items: baseline; gap: 1rem; margin: 0 0 0.75rem; }
 /* The chosen poster carries the accent while its band is open. */
 .media--chosen { outline: 3px solid var(--accent); outline-offset: -3px; }
+
+/* --- Marketing modules ---------------------------------------------------- */
+.points { margin: 0; padding-left: 1.1em; }
+.points li { margin: 0.15em 0; }
+.faq { max-width: 60rem; display: grid; gap: 8px; }
+.faq__item { background: var(--card); border: 2px solid var(--line); border-radius: var(--radius-tile); }
+.faq__item summary { padding: 1rem 1.25rem; font-weight: 500; font-size: 1.1rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after { content: "+"; color: var(--label); font-weight: 700; }
+.faq__item[open] summary::after { content: "−"; }
+.faq__item p { margin: 0; padding: 0 1.25rem 1rem; color: var(--muted); max-width: var(--measure); line-height: 1.45; }
+.cta { display: grid; gap: 0.6rem; margin-top: auto; }
+.cta__label { font: 500 0.8rem/1.3 var(--font); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.cta__input { font: inherit; padding: 0.7em 0.9em; border: 1px solid var(--muted); border-radius: 4px; background: transparent; color: inherit; min-height: 44px; }
+.cta .btn { min-height: 44px; }

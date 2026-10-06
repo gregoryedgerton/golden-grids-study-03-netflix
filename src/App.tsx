@@ -5,11 +5,12 @@ import { FilmCardBand } from "./bands/FilmCardBand";
 import { FeaturedBand } from "./bands/FeaturedBand";
 import { TierOneBand, TierTwoBand } from "./bands/RankedBand";
 import { TitleBand } from "./bands/TitleBand";
-import { FilmDialBand } from "./bands/FilmDialBand";
+import { ScenesBand } from "./bands/ScenesBand";
+import { PlanBannerBand, ReasonsBand, PlansBand, FaqBand, CtaBand } from "./bands/MarketingBands";
 
 /**
- * Study 03 — the hybrid. Bands for browse, the dial for one title, on one
- * page: many titles, then one, then the inside of one. Each band is one
+ * Study 03. Bands for browse, then one title, then that title in three acts
+ * of frames: many films, then one, then the inside of one. Each band is one
  * small-range GoldenGrid called directly; nothing nests.
  */
 export function App() {
@@ -42,18 +43,26 @@ export function App() {
         <p className="masthead__claim">
           Between the end of one war and the rise of the regime that would end the republic,
           German studios made the films that taught the rest of the world what a shadow could
-          do. Ten of them, ranked here for the pleasure of arguing about it, and one, Murnau's
-          Nosferatu, opened scene by scene.
+          do. Ten of them, ranked, with Ruttmann's Berlin featured and Murnau's Nosferatu
+          opened scene by scene in three acts.
         </p>
       </header>
 
       <main id="content">
         <FeaturedBand />
         <TierOneBand selection={selection} />
+        {film && film.rank <= 5 && <FilmCardBand film={film} onClose={() => close(film.rank)} />}
+        <PlanBannerBand />
         <TierTwoBand selection={selection} />
-        {film && <FilmCardBand film={film} onClose={() => close(film.rank)} />}
+        {film && film.rank > 5 && <FilmCardBand film={film} onClose={() => close(film.rank)} />}
+        <ReasonsBand />
         <TitleBand />
-        <FilmDialBand />
+        <ScenesBand act={0} />
+        <PlansBand />
+        <ScenesBand act={1} />
+        <ScenesBand act={2} />
+        <FaqBand />
+        <CtaBand />
       </main>
 
       <footer className="colophon">
