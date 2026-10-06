@@ -72,7 +72,15 @@ function Ranked({
               </ExpandableMedia>
               {x.isOpen(key) && (
                 <ExpandedCell id={x.panelId(key)} title={`${t.rank} · ${t.title}`} onClose={x.close} closeRef={x.closeRef}>
-                  <PhotoView src={t.art.src} alt="" caption={`${t.title} · ${t.meta}`} />
+                  <dl className="cell__facts">
+                    {t.original !== t.title && <div><dt>Original title</dt><dd>{t.original}</dd></div>}
+                    <div><dt>Year</dt><dd>{t.year}</dd></div>
+                    <div><dt>Directed by</dt><dd>{t.director}</dd></div>
+                    <div><dt>{t.rank === 8 ? "Made by" : "Cast"}</dt><dd>{t.cast}</dd></div>
+                  </dl>
+                  <p className="cell__synopsis">{t.synopsis}</p>
+                  <PhotoView src={t.art.src} alt="" caption={`Still from ${t.title}`} />
+                  <p className="cell__source">Synopsis: the study's own words, a draft. Facts: the film's credits.</p>
                 </ExpandedCell>
               )}
             </GoldenBox>

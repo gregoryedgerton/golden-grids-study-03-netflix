@@ -82,6 +82,12 @@ pushing to `main` deploys.
   the ranked ten.
 - The signed-in browse page is excluded by Greg's decision. Do not argue
   about it anywhere.
+- Copy slots are `Fact` cards from `src/lib/boxes.tsx` with type fitted by
+  `src/lib/fit.tsx` (ported from Study 04). `.box` is absolutely positioned
+  inside its GoldenBox with a 4px gutter; `.box__fit` is `flex: 1 1 0` so
+  the fit has a definite box to measure against in WebKit. Light scheme by
+  device preference; dark stays the default. Formula-like lines use
+  `fit--num` and break only at their own newlines.
 - The register is Netflix's dark from measured tokens, declared once in
   `:root` in `src/styles.css`. Dark only. Rounded cards with 4px gutters,
   never grid lines. Do not add Netflix Sans or the wordmark.

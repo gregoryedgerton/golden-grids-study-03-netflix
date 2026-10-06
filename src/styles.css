@@ -7,13 +7,14 @@
    reference is. The typeface is NOT matched: Netflix Sans is the reference's
    own, so this is the rest of its declared stack. */
 :root {
-  color-scheme: dark;
+  color-scheme: dark light;
   --bg: #000;                          /* body, home page */
   --fg: #fff;
   --muted: rgba(255, 255, 255, 0.7);   /* secondary text */
   --line: rgba(255, 255, 255, 0.04);   /* card border */
   --card: rgba(255, 255, 255, 0.1);    /* details card fill */
   --accent: rgb(229, 9, 20);           /* call to action */
+  --on-accent: #fff;
   --radius-tile: 8px;
   --radius-card: 16px;
   --btn: rgb(35, 35, 35);              /* tile button fill */
@@ -22,6 +23,22 @@
   --tag-fg: #000;
   --measure: 62ch;
   --font: "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+}
+
+/* Light, by device preference. The reference has no light scheme, so these
+   are the dark tokens turned over, not measured values; the red stays. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fff;
+    --fg: #141414;
+    --muted: rgba(20, 20, 20, 0.7);
+    --line: rgba(0, 0, 0, 0.08);
+    --card: rgba(0, 0, 0, 0.06);
+    --btn: #e6e6e6;
+    --line-light: #f0f0f0;
+    --tag-bg: rgba(20, 20, 20, 0.85);
+    --tag-fg: #fff;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -180,3 +197,44 @@ a { color: inherit; text-decoration-color: var(--accent); }
 .details dt { font-size: 0.8rem; color: var(--muted); }
 .details dd { margin: 0; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+
+/* --- Boxes, ported from Study 04 ---------------------------------------- */
+/* A copy slot is a card: label at the top, a line of type fitted to the
+   room that is left, body copy, and a foot. Padding is a share of the
+   card's own side, so a small card keeps room for its line. */
+.box {
+  position: absolute; inset: 4px; /* GoldenBox is the positioned 100% parent; the 4px is the card gutter */
+  display: flex; flex-direction: column;
+  padding: clamp(6px, 8%, 36px);
+  overflow: hidden;
+  container-type: size;
+  background: var(--card); border: 2px solid var(--line); border-radius: var(--radius-card);
+}
+.box__label { margin: 0 0 0.4em; font: 500 clamp(0.6rem, 3.4cqmin, 0.8rem)/1.3 var(--font); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); overflow-wrap: anywhere; }
+/* The fitted line's room is whatever the label, body and foot leave: a flex
+   basis of 0 that grows to fill, never sized by its own content, so the fit
+   has a box to measure against in every engine. */
+.box__fit { flex: 1 1 0; min-height: 0; position: relative; display: flex; align-items: center; overflow: hidden; }
+.box__fit--end { align-items: flex-end; }
+.fit { display: block; margin: 0; font-weight: 700; line-height: 1.0; letter-spacing: -0.02em; white-space: pre-line; text-wrap: balance; transition: none !important; }
+.fit--num { white-space: pre; text-wrap: nowrap; font-variant-numeric: lining-nums tabular-nums; }
+.fit--light { font-weight: 400; }
+/* Body copy is never clipped: it keeps its full height and is removed whole
+   in a short card. */
+.box__body { margin: 0.5em 0 0; font-size: clamp(0.8rem, 4cqmin, 1.05rem); line-height: 1.4; max-width: var(--measure); flex: 0 0 auto; }
+.box__body p { margin: 0 0 0.5em; }
+.box__body p:last-child { margin-bottom: 0; }
+.box__foot { margin-top: auto; padding-top: 0.5em; display: flex; justify-content: space-between; gap: 1em; align-items: baseline; font-size: clamp(0.6rem, 3.4cqmin, 0.8rem); }
+.box__source { color: var(--muted); }
+.more { min-height: 24px; font: 700 1em/1 var(--font); letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg); background: transparent; border: 0; padding: 0.3em 0; cursor: pointer; border-bottom: 2px solid var(--accent); }
+.more--link { text-decoration: none; }
+.box__foot .more + .more { margin-left: 1em; }
+@container (max-height: 240px) { .box__body { display: none; } }
+@container (max-width: 110px) or (max-height: 90px) { .box__body, .box__foot, .box__source { display: none; } }
+@container (max-width: 64px) or (max-height: 64px) { .box__label { display: none; } }
+.cell__source { font-size: 0.9rem; color: var(--muted); }
+.cell__facts { margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem 1.5rem; max-width: var(--measure); }
+.cell__facts dt { font: 500 0.75rem/1.3 var(--font); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.cell__facts dd { margin: 0; }
+.cell__synopsis { max-width: var(--measure); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.45; }

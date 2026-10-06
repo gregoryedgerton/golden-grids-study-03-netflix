@@ -1,6 +1,7 @@
 import { GoldenGrid, GoldenBox } from "@gifcommit/golden-grids";
 import { useViewport } from "../lib/viewport";
-import { useExpandGroup, ExpandedCell } from "../lib/expand";
+import { useExpandGroup } from "../lib/expand";
+import { Fact } from "../lib/boxes";
 import { FILM } from "../content";
 import { Band } from "./Band";
 
@@ -22,7 +23,6 @@ export function TitleBand() {
   const x = useExpandGroup();
   const art = {
     key: "art",
-    surface: undefined as string | undefined,
     node: (
       <figure className="media">
         <img src={FILM.art.src} alt={`Still from ${FILM.title}: a thin figure standing in a dark archway`} style={{ objectPosition: FILM.art.subject }} />
@@ -31,38 +31,56 @@ export function TitleBand() {
   };
   const synopsis = {
     key: "synopsis",
-    surface: "surface surface--1",
     node: (
-      <div className="copy copy--prose">
-        <h3>{FILM.title}</h3>
-        <p>{FILM.synopsis[viewport]}</p>
-      </div>
+      <Fact
+        label="Synopsis"
+        body={<p>{FILM.synopsis[viewport]}</p>}
+        source="The study's own words"
+        expand={{
+          group: x, slotKey: "synopsis", title: FILM.title,
+          full: <div className="cell__synopsis">{FILM.longer.map((p, i) => <p key={i}>{p}</p>)}</div>,
+          source: "The study's own account; a draft.",
+        }}
+      >
+        {FILM.title}
+      </Fact>
     ),
   };
   const meta = {
     key: "meta",
-    surface: "surface surface--2",
     node: (
-      <>
-        <div className="copy copy--center">
-          <button className="chip chip--button" {...x.triggerProps("meta")}>{FILM.meta} · details</button>
-        </div>
-        {x.isOpen("meta") && (
-          <ExpandedCell id={x.panelId("meta")} title={`${FILM.title} — details`} onClose={x.close} closeRef={x.closeRef}>
+      <Fact
+        label="Details"
+        fitClass="fit--light"
+        expand={{
+          group: x, slotKey: "meta", title: `${FILM.title} — details`,
+          full: (
             <dl className="details">
               {FILM.details.map(([term, value]) => (
                 <div key={term}><dt>{term}</dt><dd>{value}</dd></div>
               ))}
             </dl>
-          </ExpandedCell>
-        )}
-      </>
+          ),
+        }}
+      >
+        {FILM.meta.replace(/ · /g, "\n")}
+      </Fact>
     ),
   };
   const cast = {
     key: "cast",
-    surface: "surface surface--3",
-    node: <div className="copy copy--center"><span className="chip">{FILM.cast}</span></div>,
+    node: (
+      <Fact
+        label="Starring"
+        fitClass="fit--light"
+        expand={{
+          group: x, slotKey: "cast", title: `${FILM.title} — cast`,
+          full: <p className="cell__synopsis">{FILM.details.find(([t]) => t === "Cast")?.[1]}</p>,
+        }}
+      >
+        {FILM.cast.replace(/, /g, "\n")}
+      </Fact>
+    ),
   };
   const boxes = viewport === "desktop" ? [art, synopsis, meta, cast] : [synopsis, art, meta, cast];
 
@@ -75,14 +93,11 @@ export function TitleBand() {
       cap="60rem"
     >
       <GoldenGrid from={1} to={4} placement="left" clockwise={false}>
-        {boxes.map((b) => {
-          const expand = b.key === "meta" ? x.boxProps("meta").className : undefined;
-          return (
-            <GoldenBox key={b.key} className={[b.surface, expand].filter(Boolean).join(" ") || undefined}>
-              {b.node}
-            </GoldenBox>
-          );
-        })}
+        {boxes.map((b) => (
+          <GoldenBox key={b.key} {...x.boxProps(b.key)}>
+            {b.node}
+          </GoldenBox>
+        ))}
       </GoldenGrid>
     </Band>
   );

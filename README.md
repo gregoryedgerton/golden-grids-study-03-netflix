@@ -13,7 +13,7 @@ Built with [Golden Grids](https://github.com/gregoryedgerton/golden-grids)
 [generator](https://gregoryedgerton.github.io/golden-grids/)), from the
 [study template](https://github.com/gregoryedgerton/golden-grids-study-template).
 
-> **Status: built and live.** Structure measured at three widths, visual
+> **Status: built and live; typography, expansion and schemes brought to Study 04's standard 2026-10-06.** Structure measured at three widths, visual
 > register matched to tokens measured from the reference, and every image a
 > still from its film: Nosferatu and ten more of Weimar-era German cinema,
 > all public domain in the United States. [`ASSETS.md`](ASSETS.md) is the
@@ -308,12 +308,37 @@ from memory and no further checking is planned.
 - **A sticky ten-viewport section inside a page** is a long way to scroll
   for a reader who wanted the footer. There is no way past it but through.
 
-## Interactions: expand a cell
+## Type that fits, cards that expand, two schemes
 
-Every poster and the featured art expand their own slot to the whole band;
-the metadata chip in band 4 expands to the details list. The band grows in
-flow and nothing scrolls inside a box. Mechanics are the template's, in
-[`src/lib/expand.tsx`](src/lib/expand.tsx) and `expand.css`, unchanged.
+Brought over from Study 04 on 2026-10-06, so the two studies share one
+standard.
+
+**Type fits its card.** Every copy card ([`src/lib/boxes.tsx`](src/lib/boxes.tsx))
+is a label, a line of type fitted to the room the card leaves it
+([`src/lib/fit.tsx`](src/lib/fit.tsx): a binary search on font-size,
+re-run on resize and when the font arrives), optional body copy, and a foot.
+The fitted line's container is a definite flex box, `flex: 1 1 0`, which is
+what lets the fit measure correctly in WebKit as well as Chrome. Cards pad
+at 8% of their own side, 6px to 36px. Nothing is clipped: labels wrap, body
+copy is removed whole below 240px, and in a card under 64px the label goes
+and the line stays. Scanned in Chrome and WebKit at 390, 820 and 1440, in
+both schemes: no element overflows its card.
+
+**Light by device preference.** The reference has no light scheme. Under
+`prefers-color-scheme: light` the dark tokens are turned over, white ground
+and near-black type, with the red unchanged; the values are the study's,
+not measured. The dark scheme remains the default and the reference's.
+
+**Every card opens.** The featured title, the synopsis, the details and the
+cast expand to a fuller passage; every ranked poster expands to its film's
+credits, a short synopsis and the still. The synopses and the fuller
+account of *Nosferatu* are the study's own words and are drafts.
+
+**Accessibility.** axe-core (WCAG 2.0/2.1/2.2 A and AA plus best practice)
+reports no violations in either scheme with a card open. Every More control
+names what it opens; controls are at least 24px tall; the reduced-motion
+rule is `transition: none`, which matters because the fit measures
+synchronously after each write.
 
 ## Study tools
 

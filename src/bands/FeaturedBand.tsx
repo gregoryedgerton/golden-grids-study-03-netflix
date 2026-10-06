@@ -2,6 +2,8 @@ import { GoldenGrid, GoldenBox } from "@gifcommit/golden-grids";
 import type { PlacementValue } from "@gifcommit/golden-grids";
 import { useViewport, pick } from "../lib/viewport";
 import { useExpandGroup, ExpandedCell, ExpandableMedia, PhotoView } from "../lib/expand";
+import { Fact } from "../lib/boxes";
+import { FILM } from "../content";
 import { FEATURED } from "../content";
 import { Band } from "./Band";
 
@@ -57,18 +59,26 @@ export function FeaturedBand() {
             </ExpandedCell>
           )}
         </GoldenBox>
-        <GoldenBox className="surface surface--1">
-          <div className="copy copy--center">
-            <h3>{FEATURED.title}</h3>
-            <p>{FEATURED.standfirst}</p>
-            <p><a className="btn" href="#title">Open</a></p>
-          </div>
+        <GoldenBox {...x.boxProps("about")}>
+          <Fact
+            label="Featured"
+            body={<p>{FEATURED.standfirst}</p>}
+            source={FEATURED.meta}
+            link={{ href: "#title", label: "Open", aria: `Open ${FEATURED.title}` }}
+            expand={{
+              group: x, slotKey: "about", title: FEATURED.title,
+              full: <div className="cell__synopsis">{FILM.longer.map((p, i) => <p key={i}>{p}</p>)}</div>,
+              source: "The study's own account; a draft.",
+            }}
+          >
+            {FEATURED.title}
+          </Fact>
         </GoldenBox>
-        <GoldenBox className="surface surface--2">
-          <div className="copy copy--center"><span className="chip">{FEATURED.meta}</span></div>
+        <GoldenBox>
+          <Fact label="Year · director" fitClass="fit--light">{"1922\nF. W. Murnau"}</Fact>
         </GoldenBox>
-        <GoldenBox className="surface surface--3">
-          <div className="copy copy--center"><span className="chip">{FEATURED.badge}</span></div>
+        <GoldenBox>
+          <Fact label="Genre" fitClass="fit--light">{FEATURED.badge.replace(" · ", "\n")}</Fact>
         </GoldenBox>
       </GoldenGrid>
     </Band>

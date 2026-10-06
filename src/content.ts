@@ -18,8 +18,15 @@ const still = (name: string, px: number, subject = "50% 50%"): Still => ({
 export interface RankedTitle {
   rank: number;
   title: string;
+  original: string;
+  year: number;
+  director: string;
   meta: string;
   art: Still;
+  /** Principal cast, or for an animated film its makers. */
+  cast: string;
+  /** Two or three sentences, the study's own words. A draft. */
+  synopsis: string;
 }
 
 /**
@@ -34,17 +41,17 @@ export interface RankedTitle {
  * also the size. Each still is as large as its print allows, which is far
  * smaller than the largest slots ask for — see ASSETS.md.
  */
-const TITLES: readonly [string, string, number, string][] = [
-  ["Metropolis", "Metropolis", 1927, "Fritz Lang"],
-  ["The Cabinet of Dr. Caligari", "Das Cabinet des Dr. Caligari", 1920, "Robert Wiene"],
-  ["The Golem", "Der Golem, wie er in die Welt kam", 1920, "Paul Wegener, Carl Boese"],
-  ["Faust", "Faust – Eine deutsche Volkssage", 1926, "F. W. Murnau"],
-  ["The Last Laugh", "Der letzte Mann", 1924, "F. W. Murnau"],
-  ["Dr. Mabuse the Gambler", "Dr. Mabuse, der Spieler", 1922, "Fritz Lang"],
-  ["Pandora's Box", "Die Büchse der Pandora", 1929, "G. W. Pabst"],
-  ["The Adventures of Prince Achmed", "Die Abenteuer des Prinzen Achmed", 1926, "Lotte Reiniger"],
-  ["Waxworks", "Das Wachsfigurenkabinett", 1924, "Paul Leni"],
-  ["Destiny", "Der müde Tod", 1921, "Fritz Lang"],
+const TITLES: readonly [string, string, number, string, string, string][] = [
+  ["Metropolis", "Metropolis", 1927, "Fritz Lang", "Brigitte Helm, Gustav Fröhlich, Alfred Abel, Rudolf Klein-Rogge", "In a towering city of the future the planners live above and the workers toil below. The master's son follows a young woman into the depths, while his father has a machine made in her likeness to undo her; flood and uprising follow before hands and head are reconciled."],
+  ["The Cabinet of Dr. Caligari", "Das Cabinet des Dr. Caligari", 1920, "Robert Wiene", "Werner Krauss, Conrad Veidt, Lil Dagover, Friedrich Fehér", "A fairground showman exhibits a sleepwalker who foretells deaths that then occur. A young man traces the murders to the showman and the asylum he runs, in a town painted in leaning walls and sharp shadows; the ending turns the story on its teller."],
+  ["The Golem", "Der Golem, wie er in die Welt kam", 1920, "Paul Wegener, Carl Boese", "Paul Wegener, Albert Steinrück, Lyda Salmonova, Ernst Deutsch", "In sixteenth-century Prague a rabbi shapes a man of clay and gives it life to protect his people from an edict of expulsion. The creature saves the emperor's court and then turns on the ghetto, until a child reaches the word on its chest."],
+  ["Faust", "Faust – Eine deutsche Volkssage", 1926, "F. W. Murnau", "Gösta Ekman, Emil Jannings, Camilla Horn", "An angel and a demon wager over the soul of an old scholar. Mephisto grants Faust youth and the world; the price is paid by the girl he loves, and the film ends in fire and a single word."],
+  ["The Last Laugh", "Der letzte Mann", 1924, "F. W. Murnau", "Emil Jannings, Maly Delschaft, Max Hiller", "The doorman of a grand hotel is demoted to washroom attendant and hides it from his neighbours behind the uniform he steals back each night. Told almost without intertitles, with a camera that moves as he does; an epilogue reverses his fortune and says so."],
+  ["Dr. Mabuse the Gambler", "Dr. Mabuse, der Spieler", 1922, "Fritz Lang", "Rudolf Klein-Rogge, Aud Egede-Nissen, Bernhard Goetzke, Alfred Abel", "A criminal mastermind in disguise rigs the stock exchange and the card table by hypnosis, while a state prosecutor closes in. Two parts and over four hours: a portrait of a city in which money, chance and will have come loose."],
+  ["Pandora's Box", "Die Büchse der Pandora", 1929, "G. W. Pabst", "Louise Brooks, Fritz Kortner, Francis Lederer, Carl Goetz", "Lulu, a dancer whose desire is unconsidered and complete, passes through a newspaper magnate, his son, a countess and a gambling ship to a London fog on Christmas Eve. From Wedekind's plays; Brooks's bob became the image of the decade."],
+  ["The Adventures of Prince Achmed", "Die Abenteuer des Prinzen Achmed", 1926, "Lotte Reiniger", "Lotte Reiniger, with Carl Koch, Walter Ruttmann, Berthold Bartosch", "The oldest surviving animated feature, cut entirely from paper silhouettes and photographed frame by frame over three years. A sorcerer's flying horse carries the prince to Wak-Wak; Aladdin, a witch and a demon battle follow."],
+  ["Waxworks", "Das Wachsfigurenkabinett", 1924, "Paul Leni", "Emil Jannings, Conrad Veidt, Werner Krauss, William Dieterle", "A young writer hired to invent stories for a fairground wax museum imagines Harun al-Rashid, Ivan the Terrible and Jack the Ripper, each in a different manner of film. The last pursues him through the fair itself."],
+  ["Destiny", "Der müde Tod", 1921, "Fritz Lang", "Lil Dagover, Walter Janssen, Bernhard Goetzke", "A young woman bargains with Death for her lover's life and is given three candles, three lives in three times and places to save. She fails each one, and is offered a last exchange."],
 ];
 const STILLS: readonly Still[] = [
   still("s03-rank-01-metropolis", 480, "60% 50%"),
@@ -58,11 +65,16 @@ const STILLS: readonly Still[] = [
   still("s03-rank-09-waxworks", 480, "60% 30%"),
   still("s03-rank-10-destiny", 576, "45% 40%"),
 ];
-export const RANKED: RankedTitle[] = TITLES.map(([title, original, year, director], i) => ({
+export const RANKED: RankedTitle[] = TITLES.map(([title, original, year, director, cast, synopsis], i) => ({
   rank: i + 1,
   title,
+  original,
+  year,
+  director,
   meta: `${original === title ? "" : `${original} · `}${year} · ${director}`,
   art: STILLS[i],
+  cast,
+  synopsis,
 }));
 
 /** Promoted, and not in the ranked ten: the billboard leads to the one
@@ -80,6 +92,12 @@ export const FILM = {
   title: "Nosferatu",
   meta: "1922 · 84 min · Silent",
   cast: "Max Schreck, Gustav von Wangenheim, Greta Schröder",
+  // DRAFT: the fuller account behind the synopsis's More control.
+  longer: [
+    "Thomas Hutter, a young clerk in the town of Wisborg, is sent by his employer Knock to the Carpathians to close the sale of a house to a Count Orlok. The villagers will not take him past the pass after dark; a coach without a driver does. At the castle the count signs for the house across the square from Hutter's own, and cuts himself on the deed; by the second night Hutter has found him asleep in a coffin in the crypt.",
+    "Orlok sails for Wisborg with a hold of earth-filled boxes, and the crew of the Empusa die one by one until the ship drifts into harbour with a dead captain lashed to the wheel. Plague is declared. Hutter's wife Ellen reads in the book he brought back that only a woman pure in heart can end the vampire, by keeping him at her side until the cock crows. She opens her window.",
+    "Murnau's film is an unauthorised adaptation of Bram Stoker's Dracula; the names were changed and the story moved from England to Germany, and Stoker's widow sued. A court ordered the prints destroyed. Copies survived abroad, and from them every later version descends.",
+  ],
   art: still("s03-title-art-archway", 480, "50% 60%"),
   // DRAFT copy, written to the slot's word count at each width.
   synopsis: {
