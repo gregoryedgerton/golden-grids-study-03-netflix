@@ -62,7 +62,7 @@ pushing to `main` deploys.
   the FAQ are not rebuilt.
 - The 21 Nosferatu frames are three act bands (`ScenesBand.tsx`), ordered
   by weight within an act, five of seven at 390. There is NO dial.
-- The catalogue is real: Nosferatu (featured, the one title, the dial) and
+- The catalogue is real: Nosferatu (the opened title and its three acts), Berlin: Symphony of a Great City (featured) and
   ten Weimar-era German films in the ranked row. Every image is to be a STILL
   from its film, never a poster. `ASSETS.md` is the provenance and the
   rights table; keep it accurate. Greg decided 2026-10-05 that all ten
