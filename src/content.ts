@@ -5,6 +5,8 @@ export interface Still {
   px: number;
   subject: string;
 }
+/** A ten-second clip cut by captures/clips.sh, beside its still. */
+export const clip = (name: string) => `${import.meta.env.BASE_URL}clips/${name}.mp4`;
 const still = (name: string, px: number, subject = "50% 50%"): Still => ({
   src: `${import.meta.env.BASE_URL}assets/${name}.jpg`,
   px,
@@ -27,8 +29,9 @@ export interface RankedTitle {
   cast: string;
   /** Two or three sentences, the study's own words. A draft. */
   synopsis: string;
-  /** The public-domain print the still was cut from. */
-  source: { label: string; href: string };
+  /** The public-domain print the still was cut from, and its player. */
+  source: { label: string; href: string; embed: string };
+  clip: string;
 }
 
 /**
@@ -89,7 +92,8 @@ export const RANKED: RankedTitle[] = TITLES.map(([title, original, year, directo
   art: STILLS[i],
   cast,
   synopsis,
-  source: { label: SOURCES[i][0], href: SOURCES[i][1] },
+  source: { label: SOURCES[i][0], href: SOURCES[i][1], embed: SOURCES[i][1].replace("/details/", "/embed/") },
+  clip: clip(`s03-rank-${String(i + 1).padStart(2, "0")}-${["metropolis", "caligari", "golem", "faust", "lastlaugh", "mabuse", "pandora", "achmed", "waxworks", "destiny"][i]}`),
 }));
 
 /** Promoted, and not in the ranked ten nor the opened title: the billboard
@@ -101,6 +105,8 @@ export const FEATURED = {
   meta: "1927 · Walter Ruttmann",
   badge: "Silent · Documentary",
   art: still("s03-featured-art-berlin", 384, "50% 55%"),
+  clip: clip("s03-featured-berlin"),
+  embed: "https://archive.org/embed/BerlinSymphonyofaGreatCity",
   // DRAFT: the fuller account behind the More control. The study's words.
   longer: [
     "Walter Ruttmann's film follows a single day in Berlin in five acts, from a train running into the city at dawn, through the morning rush, the working day, the lunch hour and the afternoon, to the theatres, cafés and dance halls of the night. Nothing is staged for a story; the film is cut to rhythm, and the camera takes the city as it finds it.",
@@ -129,6 +135,9 @@ export const FILM = {
     "Murnau's film is an unauthorised adaptation of Bram Stoker's Dracula; the names were changed and the story moved from England to Germany, and Stoker's widow sued. A court ordered the prints destroyed. Copies survived abroad, and from them every later version descends.",
   ],
   art: still("s03-title-art-archway", 480, "50% 60%"),
+  clip: clip("s03-title-archway"),
+  /** The whole film, streamed from the Commons file the frames were cut from. */
+  video: "https://upload.wikimedia.org/wikipedia/commons/0/02/Nosferatu_%281922%2C_English_titles_1947%29.webm",
   // DRAFT copy, written to the slot's word count at each width.
   synopsis: {
     desktop: "A young clerk travels to the Carpathians to sell a house to Count Orlok, and learns too late what he has invited home. The count sails for Wisborg with a hold full of earth and rats, and the town begins to die behind him.",

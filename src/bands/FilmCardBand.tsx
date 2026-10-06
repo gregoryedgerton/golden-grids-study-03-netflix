@@ -4,6 +4,7 @@ import type { PlacementValue } from "@gifcommit/golden-grids";
 import type { RankedTitle } from "../content";
 import { Fact } from "../lib/boxes";
 import { Band } from "./Band";
+import { Player } from "../lib/clip";
 import { useViewport } from "../lib/viewport";
 
 /**
@@ -60,9 +61,7 @@ export function FilmCardBand({ film, onClose }: { film: RankedTitle; onClose: ()
       </p>
       <GoldenGrid from={1} to={to} placement={placement} clockwise={clockwise}>
         <GoldenBox>
-          <figure className="media">
-            <img src={film.art.src} alt={`Still from ${film.title}`} style={{ objectPosition: film.art.subject }} />
-          </figure>
+          <Player clip={film.clip} poster={film.art.src} alt={`Still from ${film.title}`} title={film.title} embed={film.source.embed} />
         </GoldenBox>
         <GoldenBox>
           <Fact label="Synopsis" body={<p>{film.synopsis}</p>} source="The study's own words, a draft">{film.title}</Fact>

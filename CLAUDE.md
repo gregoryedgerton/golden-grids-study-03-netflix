@@ -83,6 +83,11 @@ pushing to `main` deploys.
   the fit has a definite box to measure against in WebKit. Light scheme by
   device preference; dark stays the default. Formula-like lines use
   `fit--num` and break only at their own newlines.
+- Clips (`public/clips`, `captures/clips.sh`) play in the squares via
+  `src/lib/clip.tsx`: silent, looping, in-view only, `preload="none"`, and
+  replaced by the still under reduced motion. `Player` swaps in the Internet
+  Archive embed (or the Commons file for Nosferatu) only on request. Keep
+  clips at 480px square and under ~700 KB.
 - Marketing copy (banner, reasons, plans, FAQ, CTA) is for the fictional
   service Kinothek, plain and straight, never cheeky; the form sends nothing.
 - The featured film is Berlin: Symphony of a Great City; Nosferatu is the

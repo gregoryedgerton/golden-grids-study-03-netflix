@@ -2,7 +2,8 @@ import { GoldenGrid, GoldenBox } from "@gifcommit/golden-grids";
 import type { PlacementValue } from "@gifcommit/golden-grids";
 import { useViewport, pick } from "../lib/viewport";
 import { useExpandGroup, ExpandedCell, ExpandableMedia, PhotoView } from "../lib/expand";
-import { FILM, FRAMES } from "../content";
+import { FILM, FRAMES, clip } from "../content";
+import { Clip } from "../lib/clip";
 import { Band } from "./Band";
 
 /**
@@ -50,8 +51,15 @@ function Act({ index, title, lesson, order, placement, clockwise }: { index: num
       note={`from=1 to=${to} · placement="${placement}" · clockwise=${clockwise} · frames by weight, timecode on each · ${to === 5 ? "five of seven at 390" : "seven"}`}
     >
       <GoldenGrid from={1} to={to} placement={placement} clockwise={clockwise}>
-        {frames.map((f) => {
+        {frames.map((f, i) => {
           const key = `f${f.index}`;
+          if (i === 0) return (
+            <GoldenBox key={key}>
+              <Clip src={clip(`s03-act-${index + 1}`)} poster={f.src} alt={`${FILM.title}, ${f.timecode}: ${f.note}`}>
+                <figcaption className="media__caption">{f.timecode} · {f.note}</figcaption>
+              </Clip>
+            </GoldenBox>
+          );
           return (
             <GoldenBox key={key} {...x.boxProps(key)}>
               <ExpandableMedia

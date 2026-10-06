@@ -3,6 +3,7 @@ import type { PlacementValue } from "@gifcommit/golden-grids";
 import { useViewport, pick } from "../lib/viewport";
 import { RANKED } from "../content";
 import { Band } from "./Band";
+import { Clip } from "../lib/clip";
 
 /**
  * Bands 2 and 3 — the ranked row, as two tiers.
@@ -67,8 +68,8 @@ function Ranked({
             <GoldenBox key={t.rank}>
               {/* The poster is the control: choosing it opens the film's own
                   band beneath the rows. */}
-              <figure className={`media media--inset${open ? " media--chosen" : ""}`}>
-                <img src={t.art.src} alt={`Still from ${t.title}`} style={{ objectPosition: t.art.subject }} />
+              <div className={`media media--inset${open ? " media--chosen" : ""}`}>
+                <Clip src={t.clip} poster={t.art.src} alt={`Still from ${t.title}`} objectPosition={t.art.subject} />
                 <button
                   id={`poster-${t.rank}`}
                   type="button"
@@ -80,7 +81,7 @@ function Ranked({
                   <span className="visually-hidden">{open ? `Close ${t.title}` : `Open ${t.title}, ranked ${t.rank}`}</span>
                 </button>
                 <span className="rank" aria-hidden="true">{t.rank}</span>
-              </figure>
+              </div>
             </GoldenBox>
           );
         })}

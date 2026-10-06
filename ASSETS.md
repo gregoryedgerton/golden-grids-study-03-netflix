@@ -85,3 +85,12 @@ first picture after the credits. Each was then moved to the nearest strong
 picture — at most 112 seconds — so that none is an intertitle and the vampire
 appears. That is editing, not sampling, and the page's readout shows each
 frame's true timecode.
+
+## Clips
+
+Fifteen ten-second clips, `public/clips/*.mp4`, cut by `captures/clips.sh`
+from the same files at the same timecodes as the stills above (the act clips
+at 1148, 2156 and 4704 of the Nosferatu print), centre-cropped square, 480px,
+24 fps, silent, H.264 CRF 27. 5.8 MB in all. Provenance is the stills'. The
+whole-film players load from the sources themselves: the Internet Archive's
+embed for each item, and the Commons file for Nosferatu.

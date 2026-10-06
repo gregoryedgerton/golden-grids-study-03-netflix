@@ -1,8 +1,9 @@
 import { GoldenGrid, GoldenBox } from "@gifcommit/golden-grids";
 import type { PlacementValue } from "@gifcommit/golden-grids";
 import { useViewport, pick } from "../lib/viewport";
-import { useExpandGroup, ExpandedCell, ExpandableMedia, PhotoView } from "../lib/expand";
+import { useExpandGroup } from "../lib/expand";
 import { Fact } from "../lib/boxes";
+import { Player } from "../lib/clip";
 import { FEATURED } from "../content";
 import { Band } from "./Band";
 
@@ -36,26 +37,12 @@ export function FeaturedBand() {
       note={`from=1 to=${to} · placement="${placement}" · clockwise=true · hero left · ${single ? "single: copy overlaid on the art" : to === 3 ? "3:2" : "5:3"}`}
     >
       <GoldenGrid from={1} to={to} placement={placement}>
-        <GoldenBox {...x.boxProps("art")}>
-          <ExpandableMedia
-            group={x}
-            slotKey="art"
-            className="media"
-            src={FEATURED.art.src}
-            alt={`Still from ${FEATURED.title}: motor cars on a Berlin street`}
-            objectPosition={FEATURED.art.subject}
-          >
-            {single && (
-              <div className="overlay">
-                <h3>{FEATURED.title}</h3>
-                <p>{FEATURED.standfirst}</p>
-              </div>
-            )}
-          </ExpandableMedia>
-          {x.isOpen("art") && (
-            <ExpandedCell id={x.panelId("art")} title={FEATURED.title} onClose={x.close} closeRef={x.closeRef}>
-              <PhotoView src={FEATURED.art.src} alt="" caption={`${FEATURED.title} · ${FEATURED.meta}`} />
-            </ExpandedCell>
+        <GoldenBox>
+          <Player clip={FEATURED.clip} poster={FEATURED.art.src} alt={`Still from ${FEATURED.title}: motor cars on a Berlin street`} title={FEATURED.title} embed={FEATURED.embed} />
+          {single && (
+            <div className="overlay overlay--quiet">
+              <h3>{FEATURED.title}</h3>
+            </div>
           )}
         </GoldenBox>
         <GoldenBox {...x.boxProps("about")}>

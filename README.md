@@ -308,6 +308,31 @@ from memory and no further checking is planned.
 - **A sticky ten-viewport section inside a page** is a long way to scroll
   for a reader who wanted the footer. There is no way past it but through.
 
+## Clips, and the whole film
+
+**Every square that showed a still now plays.** Fifteen ten-second clips,
+cut by [`captures/clips.sh`](captures/clips.sh) from the same prints at the
+same moments as the stills, centre-cropped square at 480px, silent, H.264,
+107 to 714 KB each and 5.8 MB in all. The featured film, the ten posters,
+the opened title and the scene that leads each act play in their squares;
+the other frames stay stills. A clip plays only while a quarter of it is on
+screen and is not fetched until then (`preload="none"`), so the page costs
+nothing in video until one scrolls into view.
+
+**The whole film, on request.** The featured film, each film card and the
+opened title carry a *Play the film* control
+([`src/lib/clip.tsx`](src/lib/clip.tsx)). For the ten it swaps the square
+for the Internet Archive's own player, embedded from the item the still was
+cut from; for Nosferatu it plays the Wikimedia Commons file the frames were
+cut from, in the browser's own player with controls. Nothing loads until the
+control is used, and *Back to the clip* returns the square.
+
+**Stillness is a setting.** Under `prefers-reduced-motion`, or the tools
+panel's reduced-motion switch, every clip is replaced by its still; that is
+the mechanism WCAG 2.2.2 asks for against content that moves for more than
+five seconds, and the autoplay is silent, looping and inside its square, as
+the reference's own billboard is.
+
 ## The rework, 2026-10-06
 
 **The dial is removed.** It was the study's spectacle half and the program's
@@ -377,7 +402,7 @@ schemes, with every film card open: no element overflows its card.
 and near-black type, with the red unchanged; the values are the study's,
 not measured. Dark remains the default and the reference's.
 
-**Every card opens, and every poster opens a band.** The featured title,
+**Every card opens, and every poster opens a band.** (And plays: see *Clips*.) The featured title,
 the synopsis, the details and the cast expand to fuller passages. Choosing
 a ranked poster opens that film's own band directly beneath the rows
 ([`src/bands/FilmCardBand.tsx`](src/bands/FilmCardBand.tsx)): the still as

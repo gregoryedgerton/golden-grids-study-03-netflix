@@ -2,6 +2,7 @@ import { GoldenGrid, GoldenBox } from "@gifcommit/golden-grids";
 import { useViewport } from "../lib/viewport";
 import { useExpandGroup } from "../lib/expand";
 import { Fact } from "../lib/boxes";
+import { Player } from "../lib/clip";
 import { FILM } from "../content";
 import { Band } from "./Band";
 
@@ -24,9 +25,7 @@ export function TitleBand() {
   const art = {
     key: "art",
     node: (
-      <figure className="media">
-        <img src={FILM.art.src} alt={`Still from ${FILM.title}: a thin figure standing in a dark archway`} style={{ objectPosition: FILM.art.subject }} />
-      </figure>
+      <Player clip={FILM.clip} poster={FILM.art.src} alt={`Still from ${FILM.title}: a thin figure standing in a dark archway`} title={FILM.title} video={FILM.video} />
     ),
   };
   const synopsis = {
