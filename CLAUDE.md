@@ -89,7 +89,7 @@ pushing to `main` deploys.
   Archive embed (or the Commons file for Nosferatu) only on request. Keep
   clips at 480px square and under ~700 KB.
 - Marketing copy (banner, reasons, plans, FAQ, CTA) is for the fictional
-  service Kinothek, plain and straight, never cheeky; the form sends nothing.
+  service GIFcommit, plain and straight, never cheeky; the form sends nothing.
 - The featured film is Berlin: Symphony of a Great City; Nosferatu is the
   opened title and appears once before its acts.
 - Page copy is about the FILMS, never about the grid: band titles and

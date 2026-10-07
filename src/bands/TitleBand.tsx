@@ -72,12 +72,13 @@ export function TitleBand() {
       <Fact
         label="Starring"
         fitClass="fit--light"
+        spoken={viewport === "mobile" ? FILM.cast : undefined}
         expand={{
           group: x, slotKey: "cast", title: `${FILM.title} — cast`,
           full: <p className="cell__synopsis">{FILM.details.find(([t]) => t === "Cast")?.[1]}</p>,
         }}
       >
-        {FILM.cast.replace(/, /g, "\n")}
+        {viewport === "mobile" ? FILM.cast.split(", ")[0] : FILM.cast.replace(/, /g, "\n")}
       </Fact>
     ),
   };

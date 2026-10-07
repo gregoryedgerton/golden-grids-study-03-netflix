@@ -208,9 +208,9 @@ export const FRAMES = FRAME_SECONDS.map((seconds, i) => {
  * submitted by the form.
  */
 export const SERVICE = {
-  name: "Kinothek",
+  name: "GIFcommit",
   banner: {
-    headline: "Kinothek for $5.99 a month",
+    headline: "GIFcommit for $5.99 a month",
     body: "The plan with ads: the whole library in HD, on one screen, with a short account of every film and the print it comes from.",
     cta: "See the plans",
   },
@@ -226,7 +226,7 @@ export const SERVICE = {
     { name: "Premium", quality: "4K + HDR", price: "$17.99", per: "a month", points: ["Four screens at once", "Spatial audio", "Downloads on six devices"] },
   ],
   faq: [
-    ["What is Kinothek?", "A streaming library of German films of the 1920s, each with a short account of the film, its makers, and the print it is shown from."],
+    ["What is GIFcommit?", "A streaming library of German films of the 1920s, each with a short account of the film, its makers, and the print it is shown from."],
     ["Where do the films come from?", "From prints in the public domain in the United States, held by the Internet Archive and Wikimedia Commons. Each film's page names its print. Where a print is a modern restoration, the page says so."],
     ["How much does it cost?", "From $5.99 a month with ads, to $17.99 a month for 4K on four screens. The plans are listed below."],
     ["Can I cancel?", "At any time, from the account page. There is no contract and no fee for leaving."],

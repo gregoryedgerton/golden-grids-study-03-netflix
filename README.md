@@ -4,8 +4,9 @@
 
 An unaffiliated layout study. It takes the structure of Netflix's signed-out
 home and title pages, a ranked row of identical tiles broken up by the
-service's own modules, and rebuilds it as stacked golden grids for a
-fictional service streaming German films of the 1920s. The imagery is stills
+service's own modules, and rebuilds it as stacked golden grids for
+GIFcommit, a fictional service streaming German films of the 1920s (the
+brand is the author's own). The imagery is stills
 and clips from films in the public domain in the United States; the copy is
 original. Nothing from Netflix is reproduced. Built with
 [Golden Grids](https://github.com/gregoryedgerton/golden-grids) from the

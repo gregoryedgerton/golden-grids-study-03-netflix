@@ -81,6 +81,7 @@ a { color: inherit; text-decoration-color: var(--accent); }
   padding-inline: clamp(12px, 3vw, 40px);
 }
 .masthead { padding-block: 1.5rem 1rem; }
+.brand { font-weight: 700; color: var(--label); text-transform: none; }
 .masthead__kicker { display: flex; justify-content: space-between; gap: 1rem; margin: 0 0 0.5rem; padding: 0 80px 0.5rem 0; border-bottom: 4px solid var(--accent); font: 500 0.8rem/1.3 var(--font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .masthead h1 { font-size: clamp(3rem, 11vw, 9.5rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.04em; margin: 0.25rem 0 0.5rem; text-transform: lowercase; }
 .masthead__claim { max-width: var(--measure); color: var(--fg); margin: 0; font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.4; font-weight: 300; }
