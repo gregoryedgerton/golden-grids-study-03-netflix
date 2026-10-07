@@ -31,6 +31,8 @@ function heroSide(placement: PlacementValue, clockwise: boolean, n: number): str
 
 export function FilmCardBand({ film, onClose }: { film: RankedTitle; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
   const viewport = useViewport();
   const [placement, clockwise] = ORIENT[(film.rank - 1) % ORIENT.length];
   // Four squares at 390: a fifth would be 45px, too small for a name. With
@@ -46,6 +48,9 @@ export function FilmCardBand({ film, onClose }: { film: RankedTitle; onClose: ()
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     el?.scrollIntoView({ block: "start", behavior: reduced ? "auto" : "smooth" });
     closeRef.current?.focus({ preventScroll: true });
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onCloseRef.current(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, [film.rank]);
 
   return (
@@ -56,7 +61,8 @@ export function FilmCardBand({ film, onClose }: { film: RankedTitle; onClose: ()
       note={`from=1 to=${to} · placement="${placement}" · clockwise=${clockwise} · hero ${hero} · one orientation per rank`}
     >
       <p className="film-card__bar">
-        <button ref={closeRef} type="button" className="more" onClick={onClose} aria-label={`Close ${film.title}`}>Close</button>
+        <button ref={closeRef} type="button" className="cell__close" onClick={onClose} aria-label={`Close ${film.title}`} aria-keyshortcuts="Escape"><span className="cell__x" aria-hidden="true">×</span><span className="cell__closeword">Close</span></button>
+        <span className="cell__esc" aria-hidden="true">Esc</span>
         <span className="box__source">Chosen from the ranking above · {film.year} · {film.director}</span>
       </p>
       <GoldenGrid from={1} to={to} placement={placement} clockwise={clockwise}>
@@ -83,6 +89,9 @@ export function FilmCardBand({ film, onClose }: { film: RankedTitle; onClose: ()
           </Fact>
         </GoldenBox>
       </GoldenGrid>
+      <p className="film-card__bar film-card__bar--foot">
+        <button type="button" className="cell__close" onClick={onClose} aria-label={`Close ${film.title}`}><span className="cell__x" aria-hidden="true">×</span><span className="cell__closeword">Close</span></button>
+      </p>
     </Band>
   );
 }
