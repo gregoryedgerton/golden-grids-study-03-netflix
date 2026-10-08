@@ -129,6 +129,17 @@ Two geometry rules, verified against source, that every band relies on:
   `spiralWindow`, `tileOnScreen`, `toCssContentTransform`, `trailToRotateDeg`
   directly, per `docs/spiral-dial.md` in the library repo.
 
+## The Close
+
+Every drill-down has one plain way out: a labelled Close at the top right of
+the opened cell, and Escape. The Close is the study's SECONDARY CTA:
+`.cell__close` (and, in Study 02, the album dialog's `.album__back`) reads the
+`--cta2-*` tokens from `src/lib/expand.css`, and this study declares them once,
+at the end of its stylesheet, from its own secondary button, so the Close
+always looks like the study's other secondary controls. The study tools panel
+is hidden by default (`?tools=1` shows it) so nothing covers that corner.
+(Greg, 2026-10-08.)
+
 ## Commands
 
 ```bash

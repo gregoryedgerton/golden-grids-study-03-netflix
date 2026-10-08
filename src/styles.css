@@ -289,3 +289,14 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
 }
 .media--inset .clip { border-radius: var(--radius-tile); }
 .overlay--quiet { pointer-events: none; }
+
+/* Netflix's secondary: the translucent grey button (the "More Info" button), white on dark; on the
+   study's light scheme the same grey is lighter and the text dark. It drives the expanded cell's Close. */
+:root {
+  --cta2-font: 500 16px/1.2 var(--font); --cta2-pad: 8px 16px; --cta2-min-h: 40px;
+  --cta2-color: #fff; --cta2-bg: rgba(109, 109, 110, 0.7); --cta2-border: 0; --cta2-radius: 4px;
+  --cta2-hover-bg: rgba(109, 109, 110, 0.4); --cta2-hover-border: 0;
+}
+@media (prefers-color-scheme: light) {
+  :root { --cta2-color: #141414; --cta2-bg: rgba(109, 109, 110, 0.18); --cta2-hover-bg: rgba(109, 109, 110, 0.3); }
+}
