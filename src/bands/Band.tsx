@@ -12,19 +12,24 @@ import type { ReactNode } from "react";
  * how a study keeps tall bands in check. Never re-range the grid for height.
  */
 export function Band({
-  id, title, lesson, note, cap, children,
+  id, title, lesson, note, cap, aside, children,
 }: {
   id: string;
   title: string;
   lesson?: string;
   note?: string;
   cap?: string;
+  /** A control in the title row, to the right of the title: the Close of a band opened from a row. */
+  aside?: ReactNode;
   children: ReactNode;
 }) {
   return (
     <section className="band" id={id} aria-labelledby={`${id}-title`}>
       <header className="band__header">
-        <h2 id={`${id}-title`} className="band__title">{title}</h2>
+        <div className="band__row">
+          <h2 id={`${id}-title`} className="band__title">{title}</h2>
+          {aside}
+        </div>
         {lesson && <p className="band__lesson">{lesson}</p>}
         {note && <p className="band__note">{note}{cap ? ` · width capped at ${cap}` : ""}</p>}
       </header>

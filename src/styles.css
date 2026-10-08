@@ -251,7 +251,7 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
 .cell__synopsis { max-width: var(--measure); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.45; }
 
 /* --- The film card band ------------------------------------------------- */
-.film-card__bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 0.75rem; }
+.film-card__bar { margin: 0 0 0.75rem; }
 /* The chosen poster carries the accent while its band is open. */
 .media--chosen { outline: 3px solid var(--accent); outline-offset: -3px; }
 
@@ -283,7 +283,7 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
 }
 .player__glyph { font-size: 0.8em; }
 .player__close {
-  position: absolute; left: 12px; top: 12px; z-index: 2;
+  position: absolute; right: 12px; top: 12px; z-index: 2;
   min-height: 32px; padding: 0.3em 0.8em;
   font: 500 0.8rem/1 var(--font); color: #fff; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 4px; cursor: pointer;
 }
@@ -300,3 +300,8 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
 @media (prefers-color-scheme: light) {
   :root { --cta2-color: #141414; --cta2-bg: rgba(109, 109, 110, 0.18); --cta2-hover-bg: rgba(109, 109, 110, 0.3); }
 }
+
+/* A band's title row: the title, and to its right any control that belongs to the opened frame (its Close). */
+.band__row { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 8px 16px; }
+.band__row .band__title { flex: 1 1 12ch; min-width: 0; }
+.band__row .cell__close { margin-top: 2px; }
