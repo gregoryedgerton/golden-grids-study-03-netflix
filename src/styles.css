@@ -251,8 +251,7 @@ html:not([data-fonts]) .masthead h1, html:not([data-fonts]) .band__title, html:n
 .cell__synopsis { max-width: var(--measure); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.45; }
 
 /* --- The film card band ------------------------------------------------- */
-.film-card__bar { display: flex; align-items: center; gap: 1rem; margin: 0 0 0.75rem; }
-.film-card__bar--foot { margin: 0.75rem 0 0; }
+.film-card__bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 0.75rem; }
 /* The chosen poster carries the accent while its band is open. */
 .media--chosen { outline: 3px solid var(--accent); outline-offset: -3px; }
 

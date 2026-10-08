@@ -61,9 +61,8 @@ export function FilmCardBand({ film, onClose }: { film: RankedTitle; onClose: ()
       note={`from=1 to=${to} · placement="${placement}" · clockwise=${clockwise} · hero ${hero} · one orientation per rank`}
     >
       <p className="film-card__bar">
-        <button ref={closeRef} type="button" className="cell__close" onClick={onClose} aria-label={`Close ${film.title}`} aria-keyshortcuts="Escape"><span className="cell__x" aria-hidden="true">×</span><span className="cell__closeword">Close</span></button>
-        <span className="cell__esc" aria-hidden="true">Esc</span>
         <span className="box__source">Chosen from the ranking above · {film.year} · {film.director}</span>
+        <button ref={closeRef} type="button" className="cell__close" onClick={onClose} aria-label={`Close ${film.title}`} aria-keyshortcuts="Escape"><span className="cell__x" aria-hidden="true">×</span><span className="cell__closeword">Close</span></button>
       </p>
       <GoldenGrid from={1} to={to} placement={placement} clockwise={clockwise}>
         <GoldenBox>
@@ -89,9 +88,6 @@ export function FilmCardBand({ film, onClose }: { film: RankedTitle; onClose: ()
           </Fact>
         </GoldenBox>
       </GoldenGrid>
-      <p className="film-card__bar film-card__bar--foot">
-        <button type="button" className="cell__close" onClick={onClose} aria-label={`Close ${film.title}`}><span className="cell__x" aria-hidden="true">×</span><span className="cell__closeword">Close</span></button>
-      </p>
     </Band>
   );
 }
