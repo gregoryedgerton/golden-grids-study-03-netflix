@@ -1,0 +1,56 @@
+{
+  "number": "03",
+  "name": "Netflix",
+  "notice": "A layout study, not Netflix: Netflix's signed-out pages rebuilt with Golden Grids by GIFcommit, using public-domain films. Not affiliated with Netflix; the service and its plans are fictional.",
+  "pages": {
+    "index": "Home and title pages"
+  },
+  "summary": "Netflix's signed-out home page and a title page, rebuilt as stacked golden grids around twelve films of Weimar cinema. A ranked row of ten becomes two grids in which rank sets size, and one film is opened scene by scene.",
+  "reviewed": {
+    "date": "October 5, 2026",
+    "method": "Captured signed out at 390, 820 and 1440 pixels. The signed-in browse page redirects to a login and was not captured.",
+    "pages": [
+      {
+        "label": "netflix.com, signed out",
+        "url": "https://www.netflix.com/"
+      },
+      {
+        "label": "A Netflix title page (title/80240715)",
+        "url": "https://www.netflix.com/title/80240715"
+      }
+    ]
+  },
+  "real": [
+    "The twelve films, 1920 to 1929, with their years and directors. All are in the public domain in the United States, where this study is hosted; six appear to remain protected in Germany.",
+    "The stills and clips, which are frames from those films."
+  ],
+  "invented": [
+    "GIFcommit as a streaming service, with its plans, prices, reasons to join and questions. None exists.",
+    "The ranking of the ten films, the synopses and every caption.",
+    "The sign-up form, which sends nothing."
+  ],
+  "assets": [
+    {
+      "what": "Film stills and clips",
+      "source": "Cut from prints on the Internet Archive and Wikimedia Commons (captures/stills.sh in the source records each one). Some prints are restorations of uncertain origin.",
+      "licence": "public domain in the United States"
+    },
+    {
+      "what": "Whole films",
+      "source": "Linked to, and loaded only on request from, the Internet Archive",
+      "url": "https://archive.org/"
+    },
+    {
+      "what": "Text",
+      "source": "Written for the study."
+    },
+    {
+      "what": "Typeface",
+      "source": "Jost, standing in for the Futura of the period",
+      "licence": "SIL Open Font License"
+    }
+  ],
+  "owner": "Netflix, or the estates and archives that hold the films",
+  "repo": "https://github.com/gregoryedgerton/golden-grids-study-03-netflix",
+  "updated": "October 9, 2026"
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Tools } from "./lib/tools";
+import { StudyBanner, StudyDisclosure } from "./lib/study";
 import { RANKED } from "./content";
 import { FilmCardBand } from "./bands/FilmCardBand";
 import { FeaturedBand } from "./bands/FeaturedBand";
@@ -37,6 +38,7 @@ export function App() {
     <>
       <Tools />
       <a className="skip" href="#content">Skip to content</a>
+      <StudyBanner />
       <header className="masthead">
         <p className="masthead__kicker"><span><strong className="brand">GIFcommit</strong> · Layout study 03 · Netflix</span><span>Ten films, 1920–1929</span></p>
         <h1>Weimar cinema</h1>
@@ -65,17 +67,7 @@ export function App() {
         <CtaBand />
       </main>
 
-      <footer className="colophon">
-        {/* Required on every study. Keep this line. */}
-        <p>
-          An unaffiliated layout study of <a href="https://www.netflix.com/">netflix.com</a>. The imagery
-          is stills from films in the public domain in the United States and the copy is original;
-          nothing from the reference site is reproduced. Built with{" "}
-          <a href="https://github.com/gregoryedgerton/golden-grids">Golden Grids</a> ·{" "}
-          <a href="https://www.npmjs.com/package/@gifcommit/golden-grids">npm</a> ·{" "}
-          <a href="https://gregoryedgerton.github.io/golden-grids/">generator</a>.
-        </p>
-      </footer>
+      <StudyDisclosure />
     </>
   );
 }
