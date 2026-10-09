@@ -31,12 +31,9 @@ numbers ten tiles 1 to 10 and draws them all at one size (224×268 at 1440,
 four reasons to join, a FAQ and an email call to action. The title page is a
 billboard, a details card, three detail cards, two rows and a price table.
 
-## The claim
+## Approach
 
-A row that numbers its titles one to ten and draws them all the same size is
-a layout declining to say what the product just said. Here rank is size, the
-rows are broken up as the reference breaks its own, and one film opens into
-its scenes.
+The reference numbers its trending titles one to ten and draws them at one size, between banners, reasons to join, plans and questions. The study sets the ten in two grids in which a title's rank sets its square, keeps the reference's other modules in their places, and opens one film into its scenes in three further bands.
 
 ## The page
 
@@ -109,23 +106,22 @@ over.
   and 1440 in both schemes with every card open: nothing overflows, no
   fitted line under 12px, no axe-core violations.
 
-## What did not
+## Notes for review
 
-- **The descent restarts at the seam.** Rank 6 leads its band and is larger
-  than ranks 4 and 5 above it. Ten ranks do not fit one grid, and no width
-  cap makes two bands monotone without shrinking the tail to nothing. A
-  Fibonacci band gives about three useful levels of distinction.
-- **The largest square is the softest.** The stills are 240 to 576 pixels,
-  what the unrestored prints allow; rank 1 draws a 480px still at 850px.
-- **Seven of the ten ranked stills come from prints of unknown or restored
-  origin.** Accepted for single stills; `ASSETS.md` says which.
-- **The frames are edited, not sampled.** A strict even sample hit
-  intertitles and missed the vampire, so each frame moved by up to two
-  minutes to the nearest strong picture.
-- **The dial is gone.** Study 03 was the series' hybrid, bands for browse
-  and the dial for one title; the dial was removed on 2026-10-06 and the
-  frames became three act bands. The program's reconciling argument no
-  longer lives here.
+Observations for whoever reviews this study, recorded without a verdict. Whether the layout suits the page is assessed separately, after every study has been reviewed.
+
+- **Two grids for ten ranks.** Rank 6 leads the second grid and is drawn larger than ranks 4 and 5 in the first.
+- **Still resolution.** The stills are 240 to 576 pixels wide; rank 1 draws a 480px still at 850px.
+- **Print provenance.** Seven of the ten ranked stills come from prints of unknown or restored origin; `ASSETS.md` says which.
+- **Scene frames.** Each was moved by up to two minutes from an even sample, to avoid intertitles.
+- **No dial.** An earlier version scrubbed one film on a spiral dial; it was replaced by the three act bands on 2026-10-06.
+
+## Disclosure
+
+Every page says what it is in three places, all read from
+[`src/study.json`](src/study.json): its title and description, a sticky notice
+at the top, and a disclosure at the very end listing the pages reviewed, what
+is real, what is invented or changed, and where each kind of asset came from.
 
 ## Study tools
 
