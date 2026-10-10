@@ -45,7 +45,7 @@ export function App() {
         <a className="wordmark" href="#content">GIFflix</a>
         <div className="top__right">
           <span className="top__lang" title="The study is in English only">English</span>
-          <a className="btn top__signin" href="#cta">Sign In</a>
+          <span className="btn top__signin">Sign In</span>
         </div>
       </header>
       <main id="content">
