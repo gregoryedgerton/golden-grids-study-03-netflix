@@ -40,7 +40,7 @@ export function App() {
       <a className="skip" href="#content">Skip to content</a>
       <StudyBanner />
       <header className="masthead">
-        <p className="masthead__kicker"><span><strong className="brand">GIFcommit</strong> · Layout study 03 · Netflix</span><span>Ten films, 1920–1929</span></p>
+        <p className="masthead__kicker"><span><strong className="brand">GIFflix</strong> · Layout study 03 · Netflix</span><span>Ten films, 1920–1929</span></p>
         <h1>Weimar cinema</h1>
         <p className="masthead__claim">
           Between the end of one war and the rise of the regime that would end the republic,

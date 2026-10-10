@@ -1,7 +1,7 @@
 {
   "number": "03",
   "name": "Netflix",
-  "notice": "A layout study, not Netflix: Netflix's signed-out pages rebuilt with Golden Grids by GIFcommit, using public-domain films. Not affiliated with Netflix; the service and its plans are fictional.",
+  "notice": "A layout study, not Netflix: Netflix's signed-out pages rebuilt with Golden Grids as GIFflix, a parody name, using public-domain films. Not affiliated with Netflix; the service and its plans are fictional.",
   "pages": {
     "index": "Home and title pages"
   },
@@ -25,7 +25,7 @@
     "The stills and clips, which are frames from those films."
   ],
   "invented": [
-    "GIFcommit as a streaming service, with its plans, prices, reasons to join and questions. None exists.",
+    "GIFflix as a streaming service, with its plans, prices, reasons to join and questions. The name is a parody made for this study; none of it exists.",
     "The ranking of the ten films, the synopses and every caption.",
     "The sign-up form, which sends nothing."
   ],
