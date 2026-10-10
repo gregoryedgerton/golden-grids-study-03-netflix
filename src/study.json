@@ -1,6 +1,7 @@
 {
   "number": "03",
   "name": "Netflix",
+  "brand": "GIFflix",
   "notice": "A layout study, not Netflix: Netflix's signed-out pages rebuilt with Golden Grids as GIFflix, a parody name, using public-domain films. Not affiliated with Netflix; the service and its plans are fictional.",
   "pages": {
     "index": "Home and title pages"
